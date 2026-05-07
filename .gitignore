@@ -6,3 +6,4 @@ __pycache__/
 data/french_factors/*.zip
 outputs/*.json
 notebooks/*.ipynb
+notebooks/.ipynb_checkpoints/
