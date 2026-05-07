@@ -108,7 +108,7 @@ if __name__ == "__main__":
     result = get_fund_returns(FundPriceInput(
         ticker="QQQ",
         start_date="2019-01",
-        end_date="2024-12"
+        end_date="2025-12"
     ))
     print(f"Ticker: {result.ticker}")
     print(f"Error: {result.error}")

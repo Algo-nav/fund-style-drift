@@ -183,9 +183,9 @@ def get_french_factors(inp: FrenchFactorInput) -> FrenchFactorOutput:
 
 if __name__ == "__main__":
     result = get_french_factors(FrenchFactorInput(
-        start_date="2019-01",
-        end_date="2024-12"
-    ))
+    start_date="2019-01",
+    end_date="2025-12"
+))
     print(f"Error: {result.error}")
     print(f"Observations: {result.num_observations}")
     print(f"Factors: {result.factors_available}")
