@@ -224,24 +224,139 @@ fund-style-drift/
 
 ---
 
+---
+
+## Week 3 — Drift Detection Engine
+
+**Goal:** Build the rolling window regression and drift flagging logic.
+
+### Tool: Drift Detection Engine
+
+**File:** `agent/tools/drift_detection_engine.py`
+
+**What it does:**
+- Aligns fund returns and factor data on a shared date index.
+- Runs OLS regression on a sliding 24-month window, stepping forward 1 month at a time.
+- Produces a time series of factor loadings (one set per window).
+- Flags drift when any factor loading moves more than 1.5 standard deviations from its prior history.
+- Requires a minimum of 12 prior windows before flagging drift (avoids false positives early in the series).
+- Returns all rolling windows and all drift events as structured Pydantic objects.
+
+**Key constants:**
+- Window size: 24 months.
+- Step size: 1 month.
+- Drift threshold: 1.5 standard deviations.
+- Minimum history before flagging: 12 windows.
+
+**Pydantic schemas:**
+- `DriftEvent`: `date`, `factor`, `loading`, `historical_mean`, `historical_std`, `z_score`, `direction`.
+- `RollingWindow`: `date`, `factor_loadings`, `adj_r_squared`, `num_observations`.
+- `DriftDetectionInput`: `ticker`, `returns`, `factors`, `start_date`, `end_date`, `window_size`, `drift_threshold`.
+- `DriftDetectionOutput`: `rolling_windows`, `drift_events`, `num_windows`, `factors_analyzed`, `source`, `error`.
+
+**Validation results (ARKK, 2019-01 to 2025-12):**
+- Windows computed: 61 (84 months - 24 window + 1 = 61, correct)
+- Drift events detected: 105
+- Notable events: Mkt-RF loading jumped to 2.01 (z=7.15) in February 2022 - peak speculation period before crash. RMW loading hit -1.19 (z=-5.67) in January 2022 - heavy tilt toward unprofitable companies at peak ARK valuations. Both historically accurate.
+- First window ends: 2020-12 (correct: 2019-01 + 24 months)
+- Last window ends: 2025-12 (correct)
+- Adj R-squared stable above 0.70 throughout (high confidence fit)
+
+### Commits (Week 3)
+
+| Hash | Message |
+|---|---|
+| 3b2cf87 | Week 3: drift detection engine with rolling OLS and drift flagging |
+
+---
+
+## Week 4 — Fund Metadata Fetcher and Chart Generator
+
+**Goal:** Complete the tool surface. Metadata fetcher for fund snapshot. Chart generator for all three Plotly charts.
+
+### Packages Added (Week 4)
+
+- `plotly` 6.7.0 - chart generation
+
+### Tool: Fund Metadata Fetcher
+
+**File:** `agent/tools/fund_metadata_fetcher.py`
+
+**What it does:**
+- Primary: returns metadata from a hardcoded lookup table for the 34-fund universe. Always clean, no API dependency.
+- Fallback: if ticker not in universe, tries FMP profile endpoint for name, exchange, inception date.
+- Last resort: returns ticker as name with nulls. Report still generates.
+
+**Fund universe: 34 funds (20 ETFs, 14 mutual funds)**
+
+ETFs: SPY, VOO, QQQ, IWM, SPYG, SPYV, VTV, VUG, MTUM, QUAL, USMV, SPLV, VYM, DGRO, ARKK, ARKG, XLK, XLF, XLE, XLV.
+
+Mutual funds: VFINX, VWUSX, FCNTX, FXAIX, AGTHX, AIVSX, PRGFX, PRFDX, JAVLX, MFEKX, LMOPX, CGMFX, SEQUX, DODGX.
+
+**Decision logged:** FMP ETF info endpoint returns 403 on Starter tier. Hardcoded lookup table chosen for v1. FMP profile endpoint retained as fallback for unknown tickers. VEIEX (emerging markets) excluded - not US equity.
+
+**Validation results:**
+- QQQ, ARKK, VFINX, DODGX: full metadata from lookup table, `in_universe=True`.
+- MSFT: falls through to last resort gracefully, no crash, `in_universe=False`.
+
+### Tool: Chart Generator
+
+**File:** `agent/tools/chart_generator.py`
+
+**What it does:**
+- Builds three Plotly charts per fund report, all in dark theme matching HF Spaces dark mode.
+- Returns each chart as a JSON string for embedding in Gradio UI.
+
+**Charts:**
+
+| Chart | Type | What it shows |
+|---|---|---|
+| NAV chart | Line with fill | Monthly price history over full period |
+| Factor loadings | Horizontal bar | Current factor loadings, significant bars fully opaque, non-significant dimmed to 35% |
+| Rolling exposures | Multi-line with drift markers | Rolling 24-month factor loadings over time, drift events marked with red dotted vertical lines |
+
+**Visual language constants:**
+- Background: `#0E1117` (matches HF Spaces dark mode)
+- Factor colors: blue (Mkt-RF), orange (SMB), green (HML), red (RMW), purple (CMA), yellow (Mom)
+- Drift markers: red dotted vertical lines
+- Non-significant factor bars: 35% opacity
+
+**Note:** Visual polish (title spacing, margins, font sizes, legend positioning) deferred to week 10 polish phase.
+
+**Validation results (ARKK):**
+- All three charts rendered cleanly with real data.
+- NAV chart JSON: 9,016 chars. Loadings chart: 8,383 chars. Rolling chart: 23,134 chars.
+- HTML test outputs visually inspected and confirmed correct.
+
+### Commits (Week 4)
+
+| Hash | Message |
+|---|---|
+| 99b4572 | Week 4: fund metadata fetcher with hardcoded universe and FMP fallback |
+| 18561f2 | Week 4: chart generator with NAV, factor loadings, and rolling exposure charts |
+| b9bbd66 | Remove test chart outputs from tracking |
+
+---
+
 ## Open Issues and Decisions Pending
 
 | Item | Status |
 |---|---|
-| Fund universe final list (30-40 funds) | Pending. To be finalized in week 3. |
-| Plotly version and theme to match Demo 1 visual language | Deferred to chart generator build. |
-| Ken French data refresh frequency | Currently manual (`refresh=True`). Automated refresh cadence to be decided in week 3+. |
-| FMP Starter tier mutual fund metadata coverage | Deferred. FMP not needed for NAV; may still be needed for AUM/expense ratio fields. |
+| Ken French data refresh frequency | Currently manual (`refresh=True`). Automated refresh cadence deferred to post-launch. |
+| Visual polish (spacing, margins, fonts) | Deferred to week 10 polish phase. |
+| FMP metadata upgrade | FMP Starter tier 403s on ETF info endpoint. Hardcoded table used for v1. Upgrade to higher tier in v1.1 if needed. |
 
 ---
 
 ## Architecture Decisions Logged
 
-- **Single agent, fresh tool surface.** No reuse of Demo 1 stack. Seven new tools.
+- **Single agent, fresh tool surface.** No reuse of Demo 1 stack. Seven new tools (6 complete, agent loop pending).
 - **Orchestrator:** Claude Agent SDK.
 - **Brain:** Claude Sonnet for reasoning and interpretation. Haiku for cheap intermediate steps where appropriate.
 - **Factor model:** Fama-French 6 (FF5 + Momentum). Custom 7-factor model deferred to v1.1.
-- **Drift detection:** Rolling 24-month window, 1-month step, flag at 1.5 standard deviations. CUSUM/Bayesian change-point detection deferred to v1.1.
+- **Drift detection:** Rolling 24-month window, 1-month step, flag at 1.5 standard deviations. Minimum 12 prior windows before flagging. CUSUM/Bayesian change-point detection deferred to v1.1.
 - **Confidence scoring:** Multi-dimensional vector (r-squared, t-stat strength, sample adequacy, factor stability). Each dimension reported separately. No single collapsed score.
 - **Data source for factors:** Ken French data library (free, monthly updates). Not computed internally.
 - **Caching strategy:** Local CSV cache in `data/french_factors/`. Avoids repeated downloads. `refresh=True` flag for manual cache busting.
+- **Fund metadata:** Hardcoded lookup table for 34-fund universe. FMP profile fallback for unknown tickers. Last resort returns ticker with nulls.
+- **Chart output format:** Plotly figures serialized to JSON strings. Deserialized in Gradio UI for rendering.
