@@ -2,6 +2,7 @@
 
 import os
 import json
+import pandas as pd
 from anthropic import Anthropic
 from dotenv import load_dotenv
 
@@ -116,12 +117,18 @@ def run_agent(ticker: str) -> dict:
         print(f"  Holdings: {holdings.total_holdings}, top 10 concentration: {holdings.top10_concentration}%")
     report["holdings"] = holdings.model_dump()
 
+    # Build cumulative return index (base 100) for NAV chart
+    # More comparable across funds than raw prices
+    
+    returns_series = pd.Series(prices.returns)
+    cumulative = (1 + returns_series).cumprod() * 100
+    monthly_prices_for_chart = {k: round(float(v), 4) for k, v in cumulative.items()}
     # Step 7: Charts
     print(f"[7/7] Generating charts...")
     charts = generate_charts(ChartInput(
         ticker=ticker,
         fund_name=metadata.name,
-        monthly_prices=prices.returns,
+        monthly_prices=monthly_prices_for_chart,
         factor_loadings=regression.factor_loadings,
         factor_tstats=regression.factor_tstats,
         rolling_windows=[w.model_dump() for w in drift.rolling_windows],
