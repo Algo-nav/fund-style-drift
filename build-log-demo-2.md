@@ -427,6 +427,59 @@ ETFs are filed under trust entities, not by ticker name. The standard CIK lookup
 
 ---
 
+## Weeks 7-9 — Scale to All Funds and Pre-Generation Script
+
+**Goal:** Run the full pipeline across all 33 funds. Build the pre-generation script. Catch and fix fund-specific failures.
+
+### Fund universe change
+
+JAVLX (Janus Henderson Forty Fund) removed from universe - delisted, yfinance returns no price data. Fund universe reduced from 34 to 33 funds.
+
+### Full universe run results (33 funds)
+
+- Pipeline failures: 0/33
+- Holdings failures: 4/33 (VOO, VTV, VUG, VYM - Vanguard ETFs whose trust CIK doesn't resolve to an active NPORT-P filing. Non-blocking.)
+- Narrative range: 3,300-4,200 chars across all funds
+- Notable: VWUSX shows 6,613 holdings - CIK shared across multiple Vanguard funds in EDGAR. Logged as known limitation for v1.
+
+### Pre-generation script
+
+**File:** `scripts/pregenerate.py`
+
+**What it does:**
+- Runs the full agent pipeline for each fund in the universe.
+- Saves structured JSON output to `outputs/reports/{ticker}.json`.
+- Skips existing reports unless `--refresh` flag is passed.
+- Supports `--tickers` flag for partial runs.
+- Adds 2-second delay between funds to avoid API rate limiting.
+- Prints a clean summary table at the end.
+
+**Output:**
+- 33 JSON files, ~77KB each.
+- Chart JSONs embedded in each report file.
+- Rolling windows excluded from saved JSON (already baked into chart JSON) to reduce file size.
+
+**Usage:**
+```bash
+python -m scripts.pregenerate                        # all 33 funds
+python -m scripts.pregenerate --tickers QQQ ARKK    # subset
+python -m scripts.pregenerate --refresh              # overwrite existing
+```
+
+**Run results:**
+- 33/33 reports generated successfully.
+- 0 pipeline failures.
+- `outputs/reports/` added to `.gitignore` - reports are generated artifacts, not source.
+
+### Commits (Weeks 7-9)
+
+| Hash | Message |
+|---|---|
+| b3d02b4 | Remove delisted JAVLX from fund universe |
+| 9c8e40b | Week 7-9: pre-generation script, 33 funds generated |
+
+---
+
 ## Open Issues and Decisions Pending
 
 | Item | Status |
@@ -434,7 +487,8 @@ ETFs are filed under trust entities, not by ticker name. The standard CIK lookup
 | Ken French data refresh frequency | Currently manual (`refresh=True`). Automated refresh cadence deferred to post-launch. |
 | Visual polish (spacing, margins, fonts) | Deferred to week 10 polish phase. |
 | FMP metadata upgrade | FMP Starter tier 403s on ETF info endpoint. Hardcoded table used for v1. Upgrade to higher tier in v1.1 if needed. |
-| Pre-generation script | Pending weeks 7-9. |
+| VOO, VTV, VUG, VYM holdings | Vanguard trust CIK doesn't resolve to active NPORT-P. Logged as known limitation. |
+| VWUSX holdings count | Shows 6,613 holdings due to shared Vanguard trust CIK. Logged as known limitation. |
 | Gradio UI | Pending week 10. |
 | HF Space deployment | Pending week 14. |
 
