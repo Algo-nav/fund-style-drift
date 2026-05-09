@@ -338,6 +338,95 @@ Mutual funds: VFINX, VWUSX, FCNTX, FXAIX, AGTHX, AIVSX, PRGFX, PRFDX, JAVLX, MFE
 
 ---
 
+---
+
+## Week 5 — Agent Loop
+
+**Goal:** Wire all six tools into a single end-to-end pipeline. Add Claude Sonnet narrative layer. Hard checkpoint: one fund, end-to-end, real data.
+
+### Files
+
+- `agent/agent.py` - orchestration logic
+- `prompts/style_drift.py` - Claude system prompt
+
+### What the agent loop does
+
+Calls all seven tools in sequence for a given ticker and passes the quantitative results to Claude Sonnet for plain-English interpretation:
+
+```
+ticker -> metadata -> FF6 factors -> fund returns -> regression -> drift detection -> N-PORT holdings -> charts -> Claude narrative
+```
+
+### Claude's role
+
+Interpreter, not researcher. Python layer handles all computation. Claude receives completed quantitative results and writes a four-section narrative: Fund Snapshot, Factor Profile, Style Drift Analysis, Confidence Assessment.
+
+### Packages Added (Week 5)
+
+- `anthropic` - Claude API client
+
+### Validation results (ARKK, end-to-end)
+
+- All 7 steps completed with no errors.
+- N-PORT holdings failed silently (ETF CIK lookup issue, non-blocking).
+- Narrative: 2,026 chars, four sections, correct factor interpretation.
+- Model: `claude-sonnet-4-6`
+
+### Commits (Week 5)
+
+| Hash | Message |
+|---|---|
+| a9ffe72 | Week 5: agent loop with full pipeline and Claude narrative |
+
+---
+
+## Week 6 — N-PORT ETF Fix and 5-Fund Validation
+
+**Goal:** Fix N-PORT ETF parsing. Run the full pipeline on 5 diverse funds. Push to GitHub.
+
+### N-PORT ETF fix
+
+ETFs are filed under trust entities, not by ticker name. The standard CIK lookup via ticker fails for ETFs structured this way. Fix: hardcoded CIK override table in `nport_parser.py` for all 20 ETFs in the universe.
+
+| ETF group | Entity | CIK |
+|---|---|---|
+| ARKK, ARKG | ARK ETF Trust | 0001579982 |
+| SPY, SPYG, SPYV | SPDR S&P 500 ETF Trust / SPDR Series Trust | 0000884394 |
+| QQQ | Invesco QQQ Trust | 0001067839 |
+| IWM, MTUM, QUAL, USMV, DGRO | iShares Trust | 0001100663 |
+| VOO | Vanguard Index Funds | 0001397545 |
+| VTV, VUG | Vanguard World Fund | 0001289988 |
+| SPLV | Invesco Exchange-Traded Fund Trust | 0001378872 |
+| VYM | Vanguard Whitehall Funds | 0001272145 |
+| XLK, XLF, XLE, XLV | Select Sector SPDR Trust | 0001064641 |
+
+### 5-Fund validation results
+
+| Ticker | Adj R² | Drift Events | Holdings | Holdings Error | Narrative |
+|---|---|---|---|---|---|
+| QQQ | 0.9467 | 112 | 101 | None | 3,933 chars |
+| VFINX | 0.9947 | 105 | 323 | None | 3,174 chars |
+| ARKK | 0.8260 | 105 | 47 | None | 3,892 chars |
+| DODGX | 0.8237 | 86 | 1,559 | None | 3,372 chars |
+| XLK | 0.9017 | 107 | 83 | None | 4,064 chars |
+
+5/5 clean. Zero errors across ETF, mutual fund, value, growth, and sector fund types.
+
+### GitHub
+
+- Repo created: github.com/Algo-nav/fund-style-drift
+- License: MIT
+- All local commits pushed to remote main branch
+
+### Commits (Week 6)
+
+| Hash | Message |
+|---|---|
+| dd56bd8 | Week 6: N-PORT ETF CIK overrides, 5-fund pipeline validated |
+| (license) | Add MIT license |
+
+---
+
 ## Open Issues and Decisions Pending
 
 | Item | Status |
@@ -345,14 +434,17 @@ Mutual funds: VFINX, VWUSX, FCNTX, FXAIX, AGTHX, AIVSX, PRGFX, PRFDX, JAVLX, MFE
 | Ken French data refresh frequency | Currently manual (`refresh=True`). Automated refresh cadence deferred to post-launch. |
 | Visual polish (spacing, margins, fonts) | Deferred to week 10 polish phase. |
 | FMP metadata upgrade | FMP Starter tier 403s on ETF info endpoint. Hardcoded table used for v1. Upgrade to higher tier in v1.1 if needed. |
+| Pre-generation script | Pending weeks 7-9. |
+| Gradio UI | Pending week 10. |
+| HF Space deployment | Pending week 14. |
 
 ---
 
 ## Architecture Decisions Logged
 
-- **Single agent, fresh tool surface.** No reuse of Demo 1 stack. Seven new tools (6 complete, agent loop pending).
-- **Orchestrator:** Claude Agent SDK.
-- **Brain:** Claude Sonnet for reasoning and interpretation. Haiku for cheap intermediate steps where appropriate.
+- **Single agent, fresh tool surface.** No reuse of Demo 1 stack. Seven tools complete.
+- **Orchestrator:** Sequential Python pipeline. Claude Agent SDK deferred - direct tool calls are cleaner for this analytical workflow.
+- **Brain:** Claude Sonnet (`claude-sonnet-4-6`) for narrative interpretation only. All quantitative work in Python.
 - **Factor model:** Fama-French 6 (FF5 + Momentum). Custom 7-factor model deferred to v1.1.
 - **Drift detection:** Rolling 24-month window, 1-month step, flag at 1.5 standard deviations. Minimum 12 prior windows before flagging. CUSUM/Bayesian change-point detection deferred to v1.1.
 - **Confidence scoring:** Multi-dimensional vector (r-squared, t-stat strength, sample adequacy, factor stability). Each dimension reported separately. No single collapsed score.
@@ -360,3 +452,5 @@ Mutual funds: VFINX, VWUSX, FCNTX, FXAIX, AGTHX, AIVSX, PRGFX, PRFDX, JAVLX, MFE
 - **Caching strategy:** Local CSV cache in `data/french_factors/`. Avoids repeated downloads. `refresh=True` flag for manual cache busting.
 - **Fund metadata:** Hardcoded lookup table for 34-fund universe. FMP profile fallback for unknown tickers. Last resort returns ticker with nulls.
 - **Chart output format:** Plotly figures serialized to JSON strings. Deserialized in Gradio UI for rendering.
+- **N-PORT ETF lookup:** Hardcoded CIK override table for all 20 ETFs. Mutual funds use dynamic atom feed lookup.
+- **GitHub:** Public repo under Algo-nav account. MIT license.
