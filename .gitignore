@@ -8,3 +8,4 @@ outputs/*.json
 notebooks/*.ipynb
 notebooks/.ipynb_checkpoints/
 outputs/*.html
+outputs/reports/
