@@ -1,0 +1,1031 @@
+{
+  "ticker": "FXAIX",
+  "error": null,
+  "metadata": {
+    "ticker": "FXAIX",
+    "name": "Fidelity 500 Index Fund",
+    "category": "Large Blend",
+    "aum_usd": 550000000000.0,
+    "expense_ratio": 0.0002,
+    "inception_date": "1988-02-17",
+    "exchange": "MUTF",
+    "in_universe": true,
+    "source": "Fund universe lookup table (static, as of early 2026)",
+    "error": null
+  },
+  "regression": {
+    "ticker": "FXAIX",
+    "start_date": "2019-01",
+    "end_date": "2025-12",
+    "num_observations": 84,
+    "alpha": 3.8e-05,
+    "alpha_tstat": 0.0753,
+    "alpha_pvalue": 0.9401,
+    "factor_loadings": {
+      "Mkt-RF": 0.979247,
+      "SMB": -0.115588,
+      "HML": 0.002643,
+      "RMW": 0.056063,
+      "CMA": 0.038652,
+      "Mom": -0.018878
+    },
+    "factor_tstats": {
+      "Mkt-RF": 88.1898,
+      "SMB": -5.3758,
+      "HML": 0.1542,
+      "RMW": 2.4419,
+      "CMA": 1.5298,
+      "Mom": -1.2528
+    },
+    "factor_pvalues": {
+      "Mkt-RF": 0.0,
+      "SMB": 0.0,
+      "HML": 0.8778,
+      "RMW": 0.0169,
+      "CMA": 0.1302,
+      "Mom": 0.2141
+    },
+    "r_squared": 0.9923,
+    "adj_r_squared": 0.9917,
+    "f_statistic": 1651.8096,
+    "f_pvalue": 0.0,
+    "conf_fit": {
+      "label": "high",
+      "metric": 0.9917,
+      "metric_name": "adj_r_squared"
+    },
+    "conf_significance": {
+      "label": "moderate",
+      "metric": 3.0,
+      "metric_name": "significant_factors"
+    },
+    "conf_sample": {
+      "label": "adequate",
+      "metric": 84.0,
+      "metric_name": "num_observations"
+    },
+    "conf_normality": {
+      "label": "pass",
+      "metric": 0.7887,
+      "metric_name": "jarque_bera_pvalue"
+    },
+    "source": "OLS regression via statsmodels. Factors: Ken French Data Library.",
+    "error": null
+  },
+  "drift": {
+    "num_windows": 61,
+    "drift_events": [
+      {
+        "date": "2022-01",
+        "factor": "SMB",
+        "loading": -0.074259,
+        "historical_mean": -0.107466,
+        "historical_std": 0.019689,
+        "z_score": 1.6866,
+        "direction": "increase"
+      },
+      {
+        "date": "2022-01",
+        "factor": "RMW",
+        "loading": 0.129064,
+        "historical_mean": 0.071511,
+        "historical_std": 0.032781,
+        "z_score": 1.7557,
+        "direction": "increase"
+      },
+      {
+        "date": "2022-02",
+        "factor": "RMW",
+        "loading": 0.131139,
+        "historical_mean": 0.075622,
+        "historical_std": 0.034893,
+        "z_score": 1.5911,
+        "direction": "increase"
+      },
+      {
+        "date": "2022-03",
+        "factor": "CMA",
+        "loading": 0.062432,
+        "historical_mean": 0.035262,
+        "historical_std": 0.013568,
+        "z_score": 2.0025,
+        "direction": "increase"
+      },
+      {
+        "date": "2022-04",
+        "factor": "Mkt-RF",
+        "loading": 0.982027,
+        "historical_mean": 0.951163,
+        "historical_std": 0.007882,
+        "z_score": 3.9158,
+        "direction": "increase"
+      },
+      {
+        "date": "2022-05",
+        "factor": "Mkt-RF",
+        "loading": 0.986644,
+        "historical_mean": 0.952978,
+        "historical_std": 0.010546,
+        "z_score": 3.1924,
+        "direction": "increase"
+      },
+      {
+        "date": "2022-07",
+        "factor": "Mkt-RF",
+        "loading": 0.988808,
+        "historical_mean": 0.955837,
+        "historical_std": 0.013169,
+        "z_score": 2.5038,
+        "direction": "increase"
+      },
+      {
+        "date": "2022-08",
+        "factor": "Mkt-RF",
+        "loading": 0.987645,
+        "historical_mean": 0.957485,
+        "historical_std": 0.01471,
+        "z_score": 2.0503,
+        "direction": "increase"
+      },
+      {
+        "date": "2022-09",
+        "factor": "Mkt-RF",
+        "loading": 0.990798,
+        "historical_mean": 0.958921,
+        "historical_std": 0.015727,
+        "z_score": 2.0269,
+        "direction": "increase"
+      },
+      {
+        "date": "2022-10",
+        "factor": "Mom",
+        "loading": -0.030169,
+        "historical_mean": -0.008765,
+        "historical_std": 0.010498,
+        "z_score": -2.0388,
+        "direction": "decrease"
+      },
+      {
+        "date": "2022-11",
+        "factor": "Mom",
+        "loading": -0.041071,
+        "historical_mean": -0.009696,
+        "historical_std": 0.011157,
+        "z_score": -2.8122,
+        "direction": "decrease"
+      },
+      {
+        "date": "2022-12",
+        "factor": "Mom",
+        "loading": -0.059097,
+        "historical_mean": -0.011003,
+        "historical_std": 0.012593,
+        "z_score": -3.819,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-01",
+        "factor": "SMB",
+        "loading": -0.134268,
+        "historical_mean": -0.107082,
+        "historical_std": 0.017634,
+        "z_score": -1.5417,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-01",
+        "factor": "Mom",
+        "loading": -0.059178,
+        "historical_mean": -0.012927,
+        "historical_std": 0.015526,
+        "z_score": -2.9789,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-02",
+        "factor": "SMB",
+        "loading": -0.140214,
+        "historical_mean": -0.108128,
+        "historical_std": 0.018064,
+        "z_score": -1.7762,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-02",
+        "factor": "Mom",
+        "loading": -0.059335,
+        "historical_mean": -0.014706,
+        "historical_std": 0.017633,
+        "z_score": -2.5311,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-03",
+        "factor": "Mom",
+        "loading": -0.054283,
+        "historical_mean": -0.016359,
+        "historical_std": 0.019247,
+        "z_score": -1.9704,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-04",
+        "factor": "Mom",
+        "loading": -0.051883,
+        "historical_mean": -0.017713,
+        "historical_std": 0.020168,
+        "z_score": -1.6943,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-05",
+        "factor": "SMB",
+        "loading": -0.144989,
+        "historical_mean": -0.110826,
+        "historical_std": 0.018916,
+        "z_score": -1.806,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-05",
+        "factor": "Mom",
+        "loading": -0.0505,
+        "historical_mean": -0.018892,
+        "historical_std": 0.020774,
+        "z_score": -1.5215,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-06",
+        "factor": "SMB",
+        "loading": -0.146138,
+        "historical_mean": -0.111965,
+        "historical_std": 0.019583,
+        "z_score": -1.7451,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-07",
+        "factor": "SMB",
+        "loading": -0.165338,
+        "historical_mean": -0.113067,
+        "historical_std": 0.020188,
+        "z_score": -2.5891,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-08",
+        "factor": "SMB",
+        "loading": -0.161031,
+        "historical_mean": -0.114701,
+        "historical_std": 0.021853,
+        "z_score": -2.1201,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-08",
+        "factor": "Mom",
+        "loading": -0.057134,
+        "historical_mean": -0.021794,
+        "historical_std": 0.021739,
+        "z_score": -1.6256,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-09",
+        "factor": "SMB",
+        "loading": -0.153992,
+        "historical_mean": -0.116105,
+        "historical_std": 0.022938,
+        "z_score": -1.6517,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-09",
+        "factor": "HML",
+        "loading": -0.011586,
+        "historical_mean": 0.015573,
+        "historical_std": 0.015499,
+        "z_score": -1.7523,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-10",
+        "factor": "HML",
+        "loading": -0.018934,
+        "historical_mean": 0.014775,
+        "historical_std": 0.015944,
+        "z_score": -2.1142,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-10",
+        "factor": "CMA",
+        "loading": 0.066127,
+        "historical_mean": 0.043927,
+        "historical_std": 0.014072,
+        "z_score": 1.5776,
+        "direction": "increase"
+      },
+      {
+        "date": "2023-11",
+        "factor": "Mkt-RF",
+        "loading": 0.990545,
+        "historical_mean": 0.964456,
+        "historical_std": 0.01444,
+        "z_score": 1.8067,
+        "direction": "increase"
+      },
+      {
+        "date": "2023-11",
+        "factor": "SMB",
+        "loading": -0.170781,
+        "historical_mean": -0.117882,
+        "historical_std": 0.02347,
+        "z_score": -2.2539,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-11",
+        "factor": "RMW",
+        "loading": 0.007228,
+        "historical_mean": 0.076989,
+        "historical_std": 0.02741,
+        "z_score": -2.5452,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-12",
+        "factor": "Mkt-RF",
+        "loading": 0.989338,
+        "historical_mean": 0.965181,
+        "historical_std": 0.014869,
+        "z_score": 1.6246,
+        "direction": "increase"
+      },
+      {
+        "date": "2023-12",
+        "factor": "SMB",
+        "loading": -0.181168,
+        "historical_mean": -0.119351,
+        "historical_std": 0.02472,
+        "z_score": -2.5006,
+        "direction": "decrease"
+      },
+      {
+        "date": "2023-12",
+        "factor": "RMW",
+        "loading": -0.004631,
+        "historical_mean": 0.075052,
+        "historical_std": 0.029357,
+        "z_score": -2.7142,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-01",
+        "factor": "Mkt-RF",
+        "loading": 0.991934,
+        "historical_mean": 0.965834,
+        "historical_std": 0.015181,
+        "z_score": 1.7193,
+        "direction": "increase"
+      },
+      {
+        "date": "2024-01",
+        "factor": "SMB",
+        "loading": -0.174812,
+        "historical_mean": -0.121022,
+        "historical_std": 0.026364,
+        "z_score": -2.0403,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-01",
+        "factor": "RMW",
+        "loading": -0.002021,
+        "historical_mean": 0.072898,
+        "historical_std": 0.03171,
+        "z_score": -2.3626,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-02",
+        "factor": "Mkt-RF",
+        "loading": 0.99004,
+        "historical_mean": 0.96652,
+        "historical_std": 0.015552,
+        "z_score": 1.5123,
+        "direction": "increase"
+      },
+      {
+        "date": "2024-02",
+        "factor": "SMB",
+        "loading": -0.169523,
+        "historical_mean": -0.122438,
+        "historical_std": 0.027403,
+        "z_score": -1.7183,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-02",
+        "factor": "RMW",
+        "loading": -0.005412,
+        "historical_mean": 0.070926,
+        "historical_std": 0.033509,
+        "z_score": -2.2781,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-03",
+        "factor": "RMW",
+        "loading": 0.004204,
+        "historical_mean": 0.068969,
+        "historical_std": 0.035209,
+        "z_score": -1.8394,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-04",
+        "factor": "Mkt-RF",
+        "loading": 0.997381,
+        "historical_mean": 0.967629,
+        "historical_std": 0.015913,
+        "z_score": 1.8696,
+        "direction": "increase"
+      },
+      {
+        "date": "2024-04",
+        "factor": "RMW",
+        "loading": 0.005508,
+        "historical_mean": 0.06735,
+        "historical_std": 0.036207,
+        "z_score": -1.708,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-04",
+        "factor": "CMA",
+        "loading": 0.020579,
+        "historical_mean": 0.042613,
+        "historical_std": 0.014527,
+        "z_score": -1.5168,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-05",
+        "factor": "Mkt-RF",
+        "loading": 1.005222,
+        "historical_mean": 0.968355,
+        "historical_std": 0.016374,
+        "z_score": 2.2515,
+        "direction": "increase"
+      },
+      {
+        "date": "2024-05",
+        "factor": "HML",
+        "loading": -0.040681,
+        "historical_mean": 0.012659,
+        "historical_std": 0.015756,
+        "z_score": -3.3854,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-06",
+        "factor": "Mkt-RF",
+        "loading": 1.008593,
+        "historical_mean": 0.969233,
+        "historical_std": 0.017126,
+        "z_score": 2.2982,
+        "direction": "increase"
+      },
+      {
+        "date": "2024-06",
+        "factor": "HML",
+        "loading": -0.030575,
+        "historical_mean": 0.011389,
+        "historical_std": 0.017563,
+        "z_score": -2.3893,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-07",
+        "factor": "Mkt-RF",
+        "loading": 1.016067,
+        "historical_mean": 0.970148,
+        "historical_std": 0.017936,
+        "z_score": 2.5602,
+        "direction": "increase"
+      },
+      {
+        "date": "2024-07",
+        "factor": "HML",
+        "loading": -0.033162,
+        "historical_mean": 0.010413,
+        "historical_std": 0.018474,
+        "z_score": -2.3587,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-07",
+        "factor": "CMA",
+        "loading": -0.012441,
+        "historical_mean": 0.041386,
+        "historical_std": 0.014733,
+        "z_score": -3.6534,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-07",
+        "factor": "Mom",
+        "loading": 0.007826,
+        "historical_mean": -0.024114,
+        "historical_std": 0.021259,
+        "z_score": 1.5024,
+        "direction": "increase"
+      },
+      {
+        "date": "2024-08",
+        "factor": "Mkt-RF",
+        "loading": 1.022643,
+        "historical_mean": 0.971192,
+        "historical_std": 0.019005,
+        "z_score": 2.7072,
+        "direction": "increase"
+      },
+      {
+        "date": "2024-08",
+        "factor": "HML",
+        "loading": -0.024082,
+        "historical_mean": 0.009423,
+        "historical_std": 0.019383,
+        "z_score": -1.7286,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-08",
+        "factor": "CMA",
+        "loading": -0.032098,
+        "historical_mean": 0.040163,
+        "historical_std": 0.016628,
+        "z_score": -4.3457,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-08",
+        "factor": "Mom",
+        "loading": 0.010129,
+        "historical_mean": -0.023388,
+        "historical_std": 0.021549,
+        "z_score": 1.5554,
+        "direction": "increase"
+      },
+      {
+        "date": "2024-09",
+        "factor": "Mkt-RF",
+        "loading": 1.029087,
+        "historical_mean": 0.972335,
+        "historical_std": 0.020266,
+        "z_score": 2.8004,
+        "direction": "increase"
+      },
+      {
+        "date": "2024-09",
+        "factor": "HML",
+        "loading": -0.02301,
+        "historical_mean": 0.008678,
+        "historical_std": 0.019793,
+        "z_score": -1.601,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-09",
+        "factor": "CMA",
+        "loading": -0.03465,
+        "historical_mean": 0.038557,
+        "historical_std": 0.019591,
+        "z_score": -3.7368,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-10",
+        "factor": "Mkt-RF",
+        "loading": 1.041893,
+        "historical_mean": 0.973569,
+        "historical_std": 0.021686,
+        "z_score": 3.1507,
+        "direction": "increase"
+      },
+      {
+        "date": "2024-10",
+        "factor": "HML",
+        "loading": -0.024758,
+        "historical_mean": 0.00799,
+        "historical_std": 0.020114,
+        "z_score": -1.6281,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-10",
+        "factor": "CMA",
+        "loading": -0.025521,
+        "historical_mean": 0.036965,
+        "historical_std": 0.022123,
+        "z_score": -2.8245,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-10",
+        "factor": "Mom",
+        "loading": 0.015337,
+        "historical_mean": -0.021942,
+        "historical_std": 0.022139,
+        "z_score": 1.6839,
+        "direction": "increase"
+      },
+      {
+        "date": "2024-11",
+        "factor": "Mkt-RF",
+        "loading": 1.029087,
+        "historical_mean": 0.975023,
+        "historical_std": 0.023611,
+        "z_score": 2.2898,
+        "direction": "increase"
+      },
+      {
+        "date": "2024-11",
+        "factor": "CMA",
+        "loading": -0.042463,
+        "historical_mean": 0.035636,
+        "historical_std": 0.023671,
+        "z_score": -3.2993,
+        "direction": "decrease"
+      },
+      {
+        "date": "2024-11",
+        "factor": "Mom",
+        "loading": 0.013366,
+        "historical_mean": -0.021149,
+        "historical_std": 0.022553,
+        "z_score": 1.5304,
+        "direction": "increase"
+      },
+      {
+        "date": "2024-12",
+        "factor": "Mkt-RF",
+        "loading": 1.043661,
+        "historical_mean": 0.976149,
+        "historical_std": 0.024607,
+        "z_score": 2.7437,
+        "direction": "increase"
+      },
+      {
+        "date": "2024-12",
+        "factor": "CMA",
+        "loading": -0.081864,
+        "historical_mean": 0.034009,
+        "historical_std": 0.025944,
+        "z_score": -4.4663,
+        "direction": "decrease"
+      },
+      {
+        "date": "2025-01",
+        "factor": "Mkt-RF",
+        "loading": 1.041732,
+        "historical_mean": 0.977527,
+        "historical_std": 0.026158,
+        "z_score": 2.4545,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-01",
+        "factor": "CMA",
+        "loading": -0.066679,
+        "historical_mean": 0.031644,
+        "historical_std": 0.030459,
+        "z_score": -3.228,
+        "direction": "decrease"
+      },
+      {
+        "date": "2025-01",
+        "factor": "Mom",
+        "loading": 0.051631,
+        "historical_mean": -0.019813,
+        "historical_std": 0.023021,
+        "z_score": 3.1035,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-02",
+        "factor": "Mkt-RF",
+        "loading": 1.039341,
+        "historical_mean": 0.978811,
+        "historical_std": 0.027411,
+        "z_score": 2.2083,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-02",
+        "factor": "CMA",
+        "loading": -0.061557,
+        "historical_mean": 0.029678,
+        "historical_std": 0.033146,
+        "z_score": -2.7525,
+        "direction": "decrease"
+      },
+      {
+        "date": "2025-02",
+        "factor": "Mom",
+        "loading": 0.031205,
+        "historical_mean": -0.018384,
+        "historical_std": 0.024888,
+        "z_score": 1.9925,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-03",
+        "factor": "Mkt-RF",
+        "loading": 1.026442,
+        "historical_mean": 0.979998,
+        "historical_std": 0.028409,
+        "z_score": 1.6349,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-03",
+        "factor": "HML",
+        "loading": 0.047446,
+        "historical_mean": 0.007174,
+        "historical_std": 0.020151,
+        "z_score": 1.9985,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-03",
+        "factor": "CMA",
+        "loading": -0.081571,
+        "historical_mean": 0.027889,
+        "historical_std": 0.035173,
+        "z_score": -3.112,
+        "direction": "decrease"
+      },
+      {
+        "date": "2025-03",
+        "factor": "Mom",
+        "loading": 0.033187,
+        "historical_mean": -0.017412,
+        "historical_std": 0.025584,
+        "z_score": 1.9778,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-04",
+        "factor": "Mkt-RF",
+        "loading": 1.035111,
+        "historical_mean": 0.980891,
+        "historical_std": 0.028848,
+        "z_score": 1.8795,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-04",
+        "factor": "HML",
+        "loading": 0.05431,
+        "historical_mean": 0.007949,
+        "historical_std": 0.020708,
+        "z_score": 2.2388,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-04",
+        "factor": "CMA",
+        "loading": -0.086923,
+        "historical_mean": 0.025784,
+        "historical_std": 0.037939,
+        "z_score": -2.9708,
+        "direction": "decrease"
+      },
+      {
+        "date": "2025-05",
+        "factor": "Mkt-RF",
+        "loading": 1.045915,
+        "historical_mean": 0.981914,
+        "historical_std": 0.029512,
+        "z_score": 2.1687,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-05",
+        "factor": "HML",
+        "loading": 0.064467,
+        "historical_mean": 0.008823,
+        "historical_std": 0.02146,
+        "z_score": 2.5929,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-05",
+        "factor": "RMW",
+        "loading": 0.13292,
+        "historical_mean": 0.068253,
+        "historical_std": 0.035304,
+        "z_score": 1.8317,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-05",
+        "factor": "Mom",
+        "loading": 0.049955,
+        "historical_mean": -0.01572,
+        "historical_std": 0.026534,
+        "z_score": 2.4751,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-06",
+        "factor": "Mkt-RF",
+        "loading": 1.058921,
+        "historical_mean": 0.983099,
+        "historical_std": 0.030484,
+        "z_score": 2.4873,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-06",
+        "factor": "RMW",
+        "loading": 0.125307,
+        "historical_mean": 0.069451,
+        "historical_std": 0.036046,
+        "z_score": 1.5496,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-07",
+        "factor": "Mkt-RF",
+        "loading": 1.062957,
+        "historical_mean": 0.984478,
+        "historical_std": 0.031859,
+        "z_score": 2.4633,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-07",
+        "factor": "HML",
+        "loading": 0.050706,
+        "historical_mean": 0.010431,
+        "historical_std": 0.022738,
+        "z_score": 1.7713,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-07",
+        "factor": "RMW",
+        "loading": 0.127166,
+        "historical_mean": 0.070466,
+        "historical_std": 0.036488,
+        "z_score": 1.5539,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-08",
+        "factor": "Mkt-RF",
+        "loading": 1.060343,
+        "historical_mean": 0.985879,
+        "historical_std": 0.03324,
+        "z_score": 2.2402,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-08",
+        "factor": "HML",
+        "loading": 0.049844,
+        "historical_mean": 0.01115,
+        "historical_std": 0.023157,
+        "z_score": 1.671,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-09",
+        "factor": "Mkt-RF",
+        "loading": 1.060145,
+        "historical_mean": 0.987185,
+        "historical_std": 0.034367,
+        "z_score": 2.123,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-09",
+        "factor": "HML",
+        "loading": 0.048818,
+        "historical_mean": 0.011829,
+        "historical_std": 0.023508,
+        "z_score": 1.5735,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-10",
+        "factor": "Mkt-RF",
+        "loading": 1.054596,
+        "historical_mean": 0.988443,
+        "historical_std": 0.035368,
+        "z_score": 1.8704,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-11",
+        "factor": "Mkt-RF",
+        "loading": 1.046457,
+        "historical_mean": 0.989565,
+        "historical_std": 0.036092,
+        "z_score": 1.5763,
+        "direction": "increase"
+      },
+      {
+        "date": "2025-12",
+        "factor": "Mkt-RF",
+        "loading": 1.050937,
+        "historical_mean": 0.990513,
+        "historical_std": 0.036523,
+        "z_score": 1.6544,
+        "direction": "increase"
+      }
+    ]
+  },
+  "holdings": {
+    "ticker": "FXAIX",
+    "fund_name": "Fidelity Concord Street Trust",
+    "period_ending": "2026-02-28",
+    "filed_date": "2026-04-24",
+    "total_holdings": 3773,
+    "top_holdings": [
+      {
+        "name": "NVIDIA CORP",
+        "ticker": null,
+        "pct_weight": 6.455357,
+        "value_usd": 8050683819.23
+      },
+      {
+        "name": "APPLE INC",
+        "ticker": null,
+        "pct_weight": 5.852484,
+        "value_usd": 7298821838.7
+      },
+      {
+        "name": "MICROSOFT CORP",
+        "ticker": null,
+        "pct_weight": 4.376279,
+        "value_usd": 5457798205.54
+      },
+      {
+        "name": "AMAZON.COM INC",
+        "ticker": null,
+        "pct_weight": 3.062823,
+        "value_usd": 3819745650.0
+      },
+      {
+        "name": "ALPHABET INC",
+        "ticker": null,
+        "pct_weight": 2.721521,
+        "value_usd": 3394096826.4
+      },
+      {
+        "name": "BROADCOM INC",
+        "ticker": null,
+        "pct_weight": 2.262448,
+        "value_usd": 2821572176.5
+      },
+      {
+        "name": "ALPHABET INC",
+        "ticker": null,
+        "pct_weight": 2.168994,
+        "value_usd": 2705021808.3
+      },
+      {
+        "name": "META PLATFORMS INC",
+        "ticker": null,
+        "pct_weight": 2.116447,
+        "value_usd": 2639489427.9
+      },
+      {
+        "name": "TESLA INC",
+        "ticker": null,
+        "pct_weight": 1.695731,
+        "value_usd": 2114800420.32
+      },
+      {
+        "name": "BERKSHIRE HATHAWAY INC DEL",
+        "ticker": null,
+        "pct_weight": 1.388063,
+        "value_usd": 1731098372.15
+      }
+    ],
+    "top10_concentration": 32.1001,
+    "source": "SEC EDGAR N-PORT filing. Accession: 0000035402-26-002661",
+    "error": null
+  },
+  "charts": {
+    "nav_chart_json": "{\"data\":[{\"fill\":\"tozeroy\",\"fillcolor\":\"rgba(79, 142, 247, 0.08)\",\"line\":{\"color\":\"#4F8EF7\",\"width\":2},\"mode\":\"lines\",\"name\":\"NAV\",\"x\":[\"2019-01\",\"2019-02\",\"2019-03\",\"2019-04\",\"2019-05\",\"2019-06\",\"2019-07\",\"2019-08\",\"2019-09\",\"2019-10\",\"2019-11\",\"2019-12\",\"2020-01\",\"2020-02\",\"2020-03\",\"2020-04\",\"2020-05\",\"2020-06\",\"2020-07\",\"2020-08\",\"2020-09\",\"2020-10\",\"2020-11\",\"2020-12\",\"2021-01\",\"2021-02\",\"2021-03\",\"2021-04\",\"2021-05\",\"2021-06\",\"2021-07\",\"2021-08\",\"2021-09\",\"2021-10\",\"2021-11\",\"2021-12\",\"2022-01\",\"2022-02\",\"2022-03\",\"2022-04\",\"2022-05\",\"2022-06\",\"2022-07\",\"2022-08\",\"2022-09\",\"2022-10\",\"2022-11\",\"2022-12\",\"2023-01\",\"2023-02\",\"2023-03\",\"2023-04\",\"2023-05\",\"2023-06\",\"2023-07\",\"2023-08\",\"2023-09\",\"2023-10\",\"2023-11\",\"2023-12\",\"2024-01\",\"2024-02\",\"2024-03\",\"2024-04\",\"2024-05\",\"2024-06\",\"2024-07\",\"2024-08\",\"2024-09\",\"2024-10\",\"2024-11\",\"2024-12\",\"2025-01\",\"2025-02\",\"2025-03\",\"2025-04\",\"2025-05\",\"2025-06\",\"2025-07\",\"2025-08\",\"2025-09\",\"2025-10\",\"2025-11\",\"2025-12\"],\"y\":[109.1732,112.6777,114.8708,118.8395,111.9237,119.8132,120.9803,119.6153,121.843,123.8832,129.0108,131.9919,132.8475,121.9093,106.8545,119.8687,126.3137,128.8197,135.4785,145.8775,140.3393,136.0717,151.5476,156.6502,155.777,160.081,167.093,175.4954,177.242,181.3767,185.0747,191.3195,182.427,194.519,193.8621,201.8217,192.0612,186.3151,193.2252,175.8519,176.6914,162.1054,176.2859,169.8401,154.1902,165.9153,175.9675,165.033,176.2236,171.9264,178.2414,180.3339,181.8035,193.8061,199.2449,196.8651,187.4763,182.857,200.306,208.5083,212.9203,224.2833,231.4958,221.3604,233.05,241.4144,243.5596,250.2726,255.6082,252.4885,268.165,260.8575,269.0659,265.553,250.5914,248.053,264.4956,277.9487,283.3248,289.9404,300.5183,306.6588,308.2927,307.5423],\"type\":\"scatter\"}],\"layout\":{\"template\":{\"data\":{\"histogram2dcontour\":[{\"type\":\"histogram2dcontour\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"choropleth\":[{\"type\":\"choropleth\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}],\"histogram2d\":[{\"type\":\"histogram2d\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"heatmap\":[{\"type\":\"heatmap\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"contourcarpet\":[{\"type\":\"contourcarpet\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}],\"contour\":[{\"type\":\"contour\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"surface\":[{\"type\":\"surface\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"mesh3d\":[{\"type\":\"mesh3d\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}],\"scatter\":[{\"fillpattern\":{\"fillmode\":\"overlay\",\"size\":10,\"solidity\":0.2},\"type\":\"scatter\"}],\"parcoords\":[{\"type\":\"parcoords\",\"line\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scatterpolargl\":[{\"type\":\"scatterpolargl\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"bar\":[{\"error_x\":{\"color\":\"#2a3f5f\"},\"error_y\":{\"color\":\"#2a3f5f\"},\"marker\":{\"line\":{\"color\":\"#E5ECF6\",\"width\":0.5},\"pattern\":{\"fillmode\":\"overlay\",\"size\":10,\"solidity\":0.2}},\"type\":\"bar\"}],\"scattergeo\":[{\"type\":\"scattergeo\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scatterpolar\":[{\"type\":\"scatterpolar\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"histogram\":[{\"marker\":{\"pattern\":{\"fillmode\":\"overlay\",\"size\":10,\"solidity\":0.2}},\"type\":\"histogram\"}],\"scattergl\":[{\"type\":\"scattergl\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scatter3d\":[{\"type\":\"scatter3d\",\"line\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}},\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scattermap\":[{\"type\":\"scattermap\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scattermapbox\":[{\"type\":\"scattermapbox\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scatterternary\":[{\"type\":\"scatterternary\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scattercarpet\":[{\"type\":\"scattercarpet\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"carpet\":[{\"aaxis\":{\"endlinecolor\":\"#2a3f5f\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"minorgridcolor\":\"white\",\"startlinecolor\":\"#2a3f5f\"},\"baxis\":{\"endlinecolor\":\"#2a3f5f\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"minorgridcolor\":\"white\",\"startlinecolor\":\"#2a3f5f\"},\"type\":\"carpet\"}],\"table\":[{\"cells\":{\"fill\":{\"color\":\"#EBF0F8\"},\"line\":{\"color\":\"white\"}},\"header\":{\"fill\":{\"color\":\"#C8D4E3\"},\"line\":{\"color\":\"white\"}},\"type\":\"table\"}],\"barpolar\":[{\"marker\":{\"line\":{\"color\":\"#E5ECF6\",\"width\":0.5},\"pattern\":{\"fillmode\":\"overlay\",\"size\":10,\"solidity\":0.2}},\"type\":\"barpolar\"}],\"pie\":[{\"automargin\":true,\"type\":\"pie\"}]},\"layout\":{\"autotypenumbers\":\"strict\",\"colorway\":[\"#636efa\",\"#EF553B\",\"#00cc96\",\"#ab63fa\",\"#FFA15A\",\"#19d3f3\",\"#FF6692\",\"#B6E880\",\"#FF97FF\",\"#FECB52\"],\"font\":{\"color\":\"#2a3f5f\"},\"hovermode\":\"closest\",\"hoverlabel\":{\"align\":\"left\"},\"paper_bgcolor\":\"white\",\"plot_bgcolor\":\"#E5ECF6\",\"polar\":{\"bgcolor\":\"#E5ECF6\",\"angularaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"},\"radialaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"}},\"ternary\":{\"bgcolor\":\"#E5ECF6\",\"aaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"},\"baxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"},\"caxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"}},\"coloraxis\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}},\"colorscale\":{\"sequential\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]],\"sequentialminus\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]],\"diverging\":[[0,\"#8e0152\"],[0.1,\"#c51b7d\"],[0.2,\"#de77ae\"],[0.3,\"#f1b6da\"],[0.4,\"#fde0ef\"],[0.5,\"#f7f7f7\"],[0.6,\"#e6f5d0\"],[0.7,\"#b8e186\"],[0.8,\"#7fbc41\"],[0.9,\"#4d9221\"],[1,\"#276419\"]]},\"xaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\",\"title\":{\"standoff\":15},\"zerolinecolor\":\"white\",\"automargin\":true,\"zerolinewidth\":2},\"yaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\",\"title\":{\"standoff\":15},\"zerolinecolor\":\"white\",\"automargin\":true,\"zerolinewidth\":2},\"scene\":{\"xaxis\":{\"backgroundcolor\":\"#E5ECF6\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"showbackground\":true,\"ticks\":\"\",\"zerolinecolor\":\"white\",\"gridwidth\":2},\"yaxis\":{\"backgroundcolor\":\"#E5ECF6\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"showbackground\":true,\"ticks\":\"\",\"zerolinecolor\":\"white\",\"gridwidth\":2},\"zaxis\":{\"backgroundcolor\":\"#E5ECF6\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"showbackground\":true,\"ticks\":\"\",\"zerolinecolor\":\"white\",\"gridwidth\":2}},\"shapedefaults\":{\"line\":{\"color\":\"#2a3f5f\"}},\"annotationdefaults\":{\"arrowcolor\":\"#2a3f5f\",\"arrowhead\":0,\"arrowwidth\":1},\"geo\":{\"bgcolor\":\"white\",\"landcolor\":\"#E5ECF6\",\"subunitcolor\":\"white\",\"showland\":true,\"showlakes\":true,\"lakecolor\":\"white\"},\"title\":{\"x\":0.05},\"mapbox\":{\"style\":\"light\"}}},\"title\":{\"font\":{\"color\":\"#FAFAFA\",\"size\":14},\"text\":\"FXAIX - Price History\",\"x\":0.0,\"xanchor\":\"left\"},\"font\":{\"color\":\"#FAFAFA\",\"size\":11},\"margin\":{\"l\":60,\"r\":30,\"t\":60,\"b\":50},\"legend\":{\"font\":{\"color\":\"#FAFAFA\",\"size\":10},\"bgcolor\":\"#1A1D27\",\"bordercolor\":\"#2A2D3A\",\"borderwidth\":1},\"xaxis\":{\"tickfont\":{\"color\":\"#A0A0B0\"},\"gridcolor\":\"#2A2D3A\",\"linecolor\":\"#2A2D3A\",\"title\":{}},\"yaxis\":{\"tickfont\":{\"color\":\"#A0A0B0\"},\"gridcolor\":\"#2A2D3A\",\"linecolor\":\"#2A2D3A\",\"title\":{\"text\":\"Price (USD)\"}},\"paper_bgcolor\":\"#0E1117\",\"plot_bgcolor\":\"#1A1D27\",\"showlegend\":false,\"height\":300}}",
+    "loadings_chart_json": "{\"data\":[{\"hoverinfo\":\"text\",\"hovertext\":[\"Market (Mkt-RF)\\u003cbr\\u003eLoading: 0.9792\\u003cbr\\u003et-stat: 88.19 (significant)\",\"Size (SMB)\\u003cbr\\u003eLoading: -0.1156\\u003cbr\\u003et-stat: -5.38 (significant)\",\"Value (HML)\\u003cbr\\u003eLoading: 0.0026\\u003cbr\\u003et-stat: 0.15 (not significant)\",\"Profitability (RMW)\\u003cbr\\u003eLoading: 0.0561\\u003cbr\\u003et-stat: 2.44 (significant)\",\"Investment (CMA)\\u003cbr\\u003eLoading: 0.0387\\u003cbr\\u003et-stat: 1.53 (not significant)\",\"Momentum (Mom)\\u003cbr\\u003eLoading: -0.0189\\u003cbr\\u003et-stat: -1.25 (not significant)\"],\"marker\":{\"color\":[\"#4F8EF7\",\"#F7A84F\",\"rgba(79,209,139,0.35)\",\"#F76F6F\",\"rgba(160,132,232,0.35)\",\"rgba(247,226,79,0.35)\"]},\"orientation\":\"h\",\"text\":[\"0.979\",\"-0.116\",\"0.003\",\"0.056\",\"0.039\",\"-0.019\"],\"textfont\":{\"color\":\"#FAFAFA\",\"size\":10},\"textposition\":\"outside\",\"x\":[0.979247,-0.115588,0.002643,0.056063,0.038652,-0.018878],\"y\":[\"Market (Mkt-RF)\",\"Size (SMB)\",\"Value (HML)\",\"Profitability (RMW)\",\"Investment (CMA)\",\"Momentum (Mom)\"],\"type\":\"bar\"}],\"layout\":{\"template\":{\"data\":{\"histogram2dcontour\":[{\"type\":\"histogram2dcontour\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"choropleth\":[{\"type\":\"choropleth\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}],\"histogram2d\":[{\"type\":\"histogram2d\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"heatmap\":[{\"type\":\"heatmap\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"contourcarpet\":[{\"type\":\"contourcarpet\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}],\"contour\":[{\"type\":\"contour\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"surface\":[{\"type\":\"surface\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"mesh3d\":[{\"type\":\"mesh3d\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}],\"scatter\":[{\"fillpattern\":{\"fillmode\":\"overlay\",\"size\":10,\"solidity\":0.2},\"type\":\"scatter\"}],\"parcoords\":[{\"type\":\"parcoords\",\"line\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scatterpolargl\":[{\"type\":\"scatterpolargl\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"bar\":[{\"error_x\":{\"color\":\"#2a3f5f\"},\"error_y\":{\"color\":\"#2a3f5f\"},\"marker\":{\"line\":{\"color\":\"#E5ECF6\",\"width\":0.5},\"pattern\":{\"fillmode\":\"overlay\",\"size\":10,\"solidity\":0.2}},\"type\":\"bar\"}],\"scattergeo\":[{\"type\":\"scattergeo\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scatterpolar\":[{\"type\":\"scatterpolar\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"histogram\":[{\"marker\":{\"pattern\":{\"fillmode\":\"overlay\",\"size\":10,\"solidity\":0.2}},\"type\":\"histogram\"}],\"scattergl\":[{\"type\":\"scattergl\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scatter3d\":[{\"type\":\"scatter3d\",\"line\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}},\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scattermap\":[{\"type\":\"scattermap\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scattermapbox\":[{\"type\":\"scattermapbox\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scatterternary\":[{\"type\":\"scatterternary\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scattercarpet\":[{\"type\":\"scattercarpet\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"carpet\":[{\"aaxis\":{\"endlinecolor\":\"#2a3f5f\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"minorgridcolor\":\"white\",\"startlinecolor\":\"#2a3f5f\"},\"baxis\":{\"endlinecolor\":\"#2a3f5f\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"minorgridcolor\":\"white\",\"startlinecolor\":\"#2a3f5f\"},\"type\":\"carpet\"}],\"table\":[{\"cells\":{\"fill\":{\"color\":\"#EBF0F8\"},\"line\":{\"color\":\"white\"}},\"header\":{\"fill\":{\"color\":\"#C8D4E3\"},\"line\":{\"color\":\"white\"}},\"type\":\"table\"}],\"barpolar\":[{\"marker\":{\"line\":{\"color\":\"#E5ECF6\",\"width\":0.5},\"pattern\":{\"fillmode\":\"overlay\",\"size\":10,\"solidity\":0.2}},\"type\":\"barpolar\"}],\"pie\":[{\"automargin\":true,\"type\":\"pie\"}]},\"layout\":{\"autotypenumbers\":\"strict\",\"colorway\":[\"#636efa\",\"#EF553B\",\"#00cc96\",\"#ab63fa\",\"#FFA15A\",\"#19d3f3\",\"#FF6692\",\"#B6E880\",\"#FF97FF\",\"#FECB52\"],\"font\":{\"color\":\"#2a3f5f\"},\"hovermode\":\"closest\",\"hoverlabel\":{\"align\":\"left\"},\"paper_bgcolor\":\"white\",\"plot_bgcolor\":\"#E5ECF6\",\"polar\":{\"bgcolor\":\"#E5ECF6\",\"angularaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"},\"radialaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"}},\"ternary\":{\"bgcolor\":\"#E5ECF6\",\"aaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"},\"baxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"},\"caxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"}},\"coloraxis\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}},\"colorscale\":{\"sequential\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]],\"sequentialminus\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]],\"diverging\":[[0,\"#8e0152\"],[0.1,\"#c51b7d\"],[0.2,\"#de77ae\"],[0.3,\"#f1b6da\"],[0.4,\"#fde0ef\"],[0.5,\"#f7f7f7\"],[0.6,\"#e6f5d0\"],[0.7,\"#b8e186\"],[0.8,\"#7fbc41\"],[0.9,\"#4d9221\"],[1,\"#276419\"]]},\"xaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\",\"title\":{\"standoff\":15},\"zerolinecolor\":\"white\",\"automargin\":true,\"zerolinewidth\":2},\"yaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\",\"title\":{\"standoff\":15},\"zerolinecolor\":\"white\",\"automargin\":true,\"zerolinewidth\":2},\"scene\":{\"xaxis\":{\"backgroundcolor\":\"#E5ECF6\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"showbackground\":true,\"ticks\":\"\",\"zerolinecolor\":\"white\",\"gridwidth\":2},\"yaxis\":{\"backgroundcolor\":\"#E5ECF6\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"showbackground\":true,\"ticks\":\"\",\"zerolinecolor\":\"white\",\"gridwidth\":2},\"zaxis\":{\"backgroundcolor\":\"#E5ECF6\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"showbackground\":true,\"ticks\":\"\",\"zerolinecolor\":\"white\",\"gridwidth\":2}},\"shapedefaults\":{\"line\":{\"color\":\"#2a3f5f\"}},\"annotationdefaults\":{\"arrowcolor\":\"#2a3f5f\",\"arrowhead\":0,\"arrowwidth\":1},\"geo\":{\"bgcolor\":\"white\",\"landcolor\":\"#E5ECF6\",\"subunitcolor\":\"white\",\"showland\":true,\"showlakes\":true,\"lakecolor\":\"white\"},\"title\":{\"x\":0.05},\"mapbox\":{\"style\":\"light\"}}},\"shapes\":[{\"line\":{\"color\":\"#A0A0B0\",\"width\":1},\"type\":\"line\",\"x0\":0,\"x1\":0,\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"}],\"title\":{\"font\":{\"color\":\"#FAFAFA\",\"size\":14},\"text\":\"FXAIX - Factor Loadings (Full Period)\",\"x\":0.0,\"xanchor\":\"left\"},\"font\":{\"color\":\"#FAFAFA\",\"size\":11},\"margin\":{\"l\":60,\"r\":30,\"t\":60,\"b\":50},\"legend\":{\"font\":{\"color\":\"#FAFAFA\",\"size\":10},\"bgcolor\":\"#1A1D27\",\"bordercolor\":\"#2A2D3A\",\"borderwidth\":1},\"xaxis\":{\"tickfont\":{\"color\":\"#A0A0B0\"},\"gridcolor\":\"#2A2D3A\",\"linecolor\":\"#2A2D3A\",\"title\":{\"text\":\"Factor Loading\"},\"zeroline\":false},\"yaxis\":{\"tickfont\":{\"color\":\"#A0A0B0\"},\"gridcolor\":\"#2A2D3A\",\"linecolor\":\"#2A2D3A\",\"title\":{}},\"paper_bgcolor\":\"#0E1117\",\"plot_bgcolor\":\"#1A1D27\",\"height\":350}}",
+    "rolling_chart_json": "{\"data\":[{\"hovertemplate\":\"Market (Mkt-RF): %{y:.4f}\\u003cbr\\u003e%{x}\\u003cextra\\u003e\\u003c\\u002fextra\\u003e\",\"line\":{\"color\":\"#4F8EF7\",\"width\":1.5},\"mode\":\"lines\",\"name\":\"Market (Mkt-RF)\",\"x\":[\"2020-12\",\"2021-01\",\"2021-02\",\"2021-03\",\"2021-04\",\"2021-05\",\"2021-06\",\"2021-07\",\"2021-08\",\"2021-09\",\"2021-10\",\"2021-11\",\"2021-12\",\"2022-01\",\"2022-02\",\"2022-03\",\"2022-04\",\"2022-05\",\"2022-06\",\"2022-07\",\"2022-08\",\"2022-09\",\"2022-10\",\"2022-11\",\"2022-12\",\"2023-01\",\"2023-02\",\"2023-03\",\"2023-04\",\"2023-05\",\"2023-06\",\"2023-07\",\"2023-08\",\"2023-09\",\"2023-10\",\"2023-11\",\"2023-12\",\"2024-01\",\"2024-02\",\"2024-03\",\"2024-04\",\"2024-05\",\"2024-06\",\"2024-07\",\"2024-08\",\"2024-09\",\"2024-10\",\"2024-11\",\"2024-12\",\"2025-01\",\"2025-02\",\"2025-03\",\"2025-04\",\"2025-05\",\"2025-06\",\"2025-07\",\"2025-08\",\"2025-09\",\"2025-10\",\"2025-11\",\"2025-12\"],\"y\":[0.968927,0.96297,0.954364,0.941415,0.943632,0.94604,0.944206,0.950715,0.957368,0.958996,0.957553,0.947875,0.949725,0.944894,0.940936,0.948988,0.982027,0.986644,0.973623,0.988808,0.987645,0.990798,0.9668,0.968775,0.975045,0.972591,0.974019,0.974348,0.97549,0.973875,0.973491,0.970324,0.964386,0.968698,0.969967,0.990545,0.989338,0.991934,0.99004,0.987361,0.997381,1.005222,1.008593,1.016067,1.022643,1.029087,1.041893,1.029087,1.043661,1.041732,1.039341,1.026442,1.035111,1.045915,1.058921,1.062957,1.060343,1.060145,1.054596,1.046457,1.050937],\"type\":\"scatter\"},{\"hovertemplate\":\"Size (SMB): %{y:.4f}\\u003cbr\\u003e%{x}\\u003cextra\\u003e\\u003c\\u002fextra\\u003e\",\"line\":{\"color\":\"#F7A84F\",\"width\":1.5},\"mode\":\"lines\",\"name\":\"Size (SMB)\",\"x\":[\"2020-12\",\"2021-01\",\"2021-02\",\"2021-03\",\"2021-04\",\"2021-05\",\"2021-06\",\"2021-07\",\"2021-08\",\"2021-09\",\"2021-10\",\"2021-11\",\"2021-12\",\"2022-01\",\"2022-02\",\"2022-03\",\"2022-04\",\"2022-05\",\"2022-06\",\"2022-07\",\"2022-08\",\"2022-09\",\"2022-10\",\"2022-11\",\"2022-12\",\"2023-01\",\"2023-02\",\"2023-03\",\"2023-04\",\"2023-05\",\"2023-06\",\"2023-07\",\"2023-08\",\"2023-09\",\"2023-10\",\"2023-11\",\"2023-12\",\"2024-01\",\"2024-02\",\"2024-03\",\"2024-04\",\"2024-05\",\"2024-06\",\"2024-07\",\"2024-08\",\"2024-09\",\"2024-10\",\"2024-11\",\"2024-12\",\"2025-01\",\"2025-02\",\"2025-03\",\"2025-04\",\"2025-05\",\"2025-06\",\"2025-07\",\"2025-08\",\"2025-09\",\"2025-10\",\"2025-11\",\"2025-12\"],\"y\":[-0.140574,-0.087901,-0.090566,-0.07768,-0.097754,-0.10208,-0.096867,-0.116348,-0.134283,-0.132374,-0.128071,-0.090867,-0.10169,-0.074259,-0.079593,-0.100925,-0.106583,-0.110721,-0.104712,-0.11261,-0.117784,-0.115211,-0.125841,-0.123768,-0.107993,-0.134268,-0.140214,-0.12922,-0.133206,-0.144989,-0.146138,-0.165338,-0.161031,-0.153992,-0.140414,-0.170781,-0.181168,-0.174812,-0.169523,-0.160647,-0.148415,-0.115212,-0.127284,-0.088161,-0.092418,-0.093229,-0.083422,-0.092486,-0.109431,-0.089282,-0.123109,-0.122238,-0.129509,-0.122151,-0.134604,-0.13616,-0.125524,-0.125022,-0.131973,-0.123816,-0.117798],\"type\":\"scatter\"},{\"hovertemplate\":\"Value (HML): %{y:.4f}\\u003cbr\\u003e%{x}\\u003cextra\\u003e\\u003c\\u002fextra\\u003e\",\"line\":{\"color\":\"#4FD18B\",\"width\":1.5},\"mode\":\"lines\",\"name\":\"Value (HML)\",\"x\":[\"2020-12\",\"2021-01\",\"2021-02\",\"2021-03\",\"2021-04\",\"2021-05\",\"2021-06\",\"2021-07\",\"2021-08\",\"2021-09\",\"2021-10\",\"2021-11\",\"2021-12\",\"2022-01\",\"2022-02\",\"2022-03\",\"2022-04\",\"2022-05\",\"2022-06\",\"2022-07\",\"2022-08\",\"2022-09\",\"2022-10\",\"2022-11\",\"2022-12\",\"2023-01\",\"2023-02\",\"2023-03\",\"2023-04\",\"2023-05\",\"2023-06\",\"2023-07\",\"2023-08\",\"2023-09\",\"2023-10\",\"2023-11\",\"2023-12\",\"2024-01\",\"2024-02\",\"2024-03\",\"2024-04\",\"2024-05\",\"2024-06\",\"2024-07\",\"2024-08\",\"2024-09\",\"2024-10\",\"2024-11\",\"2024-12\",\"2025-01\",\"2025-02\",\"2025-03\",\"2025-04\",\"2025-05\",\"2025-06\",\"2025-07\",\"2025-08\",\"2025-09\",\"2025-10\",\"2025-11\",\"2025-12\"],\"y\":[-0.024198,-0.020834,0.003389,0.003356,0.018789,0.025842,0.021955,0.037463,0.048926,0.039628,0.037501,0.027135,0.029251,0.02177,0.020398,0.011576,0.017843,0.029326,0.019039,0.024488,0.02124,0.021396,0.015911,0.009641,0.000894,0.009102,0.004201,0.007556,0.01641,0.010956,0.00551,0.002489,-0.004025,-0.011586,-0.018934,0.007814,0.012942,0.006551,0.003963,0.00593,-0.001574,-0.040681,-0.030575,-0.033162,-0.024082,-0.02301,-0.024758,-0.016963,0.008418,0.003322,0.028343,0.047446,0.05431,0.064467,0.041588,0.050706,0.049844,0.048818,0.048112,0.044086,0.044397],\"type\":\"scatter\"},{\"hovertemplate\":\"Profitability (RMW): %{y:.4f}\\u003cbr\\u003e%{x}\\u003cextra\\u003e\\u003c\\u002fextra\\u003e\",\"line\":{\"color\":\"#F76F6F\",\"width\":1.5},\"mode\":\"lines\",\"name\":\"Profitability (RMW)\",\"x\":[\"2020-12\",\"2021-01\",\"2021-02\",\"2021-03\",\"2021-04\",\"2021-05\",\"2021-06\",\"2021-07\",\"2021-08\",\"2021-09\",\"2021-10\",\"2021-11\",\"2021-12\",\"2022-01\",\"2022-02\",\"2022-03\",\"2022-04\",\"2022-05\",\"2022-06\",\"2022-07\",\"2022-08\",\"2022-09\",\"2022-10\",\"2022-11\",\"2022-12\",\"2023-01\",\"2023-02\",\"2023-03\",\"2023-04\",\"2023-05\",\"2023-06\",\"2023-07\",\"2023-08\",\"2023-09\",\"2023-10\",\"2023-11\",\"2023-12\",\"2024-01\",\"2024-02\",\"2024-03\",\"2024-04\",\"2024-05\",\"2024-06\",\"2024-07\",\"2024-08\",\"2024-09\",\"2024-10\",\"2024-11\",\"2024-12\",\"2025-01\",\"2025-02\",\"2025-03\",\"2025-04\",\"2025-05\",\"2025-06\",\"2025-07\",\"2025-08\",\"2025-09\",\"2025-10\",\"2025-11\",\"2025-12\"],\"y\":[0.003046,0.042506,0.039108,0.109038,0.096186,0.096561,0.099433,0.071118,0.043433,0.05449,0.058404,0.112021,0.104304,0.129064,0.131139,0.107719,0.100623,0.09729,0.102658,0.097555,0.087775,0.091,0.072383,0.070962,0.063846,0.066087,0.064036,0.063666,0.062751,0.053524,0.049518,0.059136,0.06749,0.063218,0.063542,0.007228,-0.004631,-0.002021,-0.005412,0.004204,0.005508,0.0294,0.020821,0.052384,0.076226,0.083542,0.105645,0.077185,0.084046,0.106804,0.089374,0.088624,0.103857,0.13292,0.125307,0.127166,0.117851,0.119223,0.103159,0.113644,0.101381],\"type\":\"scatter\"},{\"hovertemplate\":\"Investment (CMA): %{y:.4f}\\u003cbr\\u003e%{x}\\u003cextra\\u003e\\u003c\\u002fextra\\u003e\",\"line\":{\"color\":\"#A084E8\",\"width\":1.5},\"mode\":\"lines\",\"name\":\"Investment (CMA)\",\"x\":[\"2020-12\",\"2021-01\",\"2021-02\",\"2021-03\",\"2021-04\",\"2021-05\",\"2021-06\",\"2021-07\",\"2021-08\",\"2021-09\",\"2021-10\",\"2021-11\",\"2021-12\",\"2022-01\",\"2022-02\",\"2022-03\",\"2022-04\",\"2022-05\",\"2022-06\",\"2022-07\",\"2022-08\",\"2022-09\",\"2022-10\",\"2022-11\",\"2022-12\",\"2023-01\",\"2023-02\",\"2023-03\",\"2023-04\",\"2023-05\",\"2023-06\",\"2023-07\",\"2023-08\",\"2023-09\",\"2023-10\",\"2023-11\",\"2023-12\",\"2024-01\",\"2024-02\",\"2024-03\",\"2024-04\",\"2024-05\",\"2024-06\",\"2024-07\",\"2024-08\",\"2024-09\",\"2024-10\",\"2024-11\",\"2024-12\",\"2025-01\",\"2025-02\",\"2025-03\",\"2025-04\",\"2025-05\",\"2025-06\",\"2025-07\",\"2025-08\",\"2025-09\",\"2025-10\",\"2025-11\",\"2025-12\"],\"y\":[0.005912,0.058143,0.023081,0.059483,0.037293,0.034918,0.037268,0.032464,0.021823,0.028414,0.026568,0.03218,0.045445,0.049684,0.036252,0.062432,0.056031,0.05969,0.052197,0.056451,0.058323,0.061305,0.044965,0.055626,0.064125,0.048518,0.057076,0.053291,0.037557,0.029863,0.036431,0.032636,0.043055,0.055019,0.066127,0.038263,0.025725,0.026111,0.032707,0.022076,0.020579,0.02737,0.027118,-0.012441,-0.032098,-0.03465,-0.025521,-0.042463,-0.081864,-0.066679,-0.061557,-0.081571,-0.086923,-0.032676,-0.026066,-0.020231,0.005062,0.006538,-0.007364,-0.006067,0.00052],\"type\":\"scatter\"},{\"hovertemplate\":\"Momentum (Mom): %{y:.4f}\\u003cbr\\u003e%{x}\\u003cextra\\u003e\\u003c\\u002fextra\\u003e\",\"line\":{\"color\":\"#F7E24F\",\"width\":1.5},\"mode\":\"lines\",\"name\":\"Momentum (Mom)\",\"x\":[\"2020-12\",\"2021-01\",\"2021-02\",\"2021-03\",\"2021-04\",\"2021-05\",\"2021-06\",\"2021-07\",\"2021-08\",\"2021-09\",\"2021-10\",\"2021-11\",\"2021-12\",\"2022-01\",\"2022-02\",\"2022-03\",\"2022-04\",\"2022-05\",\"2022-06\",\"2022-07\",\"2022-08\",\"2022-09\",\"2022-10\",\"2022-11\",\"2022-12\",\"2023-01\",\"2023-02\",\"2023-03\",\"2023-04\",\"2023-05\",\"2023-06\",\"2023-07\",\"2023-08\",\"2023-09\",\"2023-10\",\"2023-11\",\"2023-12\",\"2024-01\",\"2024-02\",\"2024-03\",\"2024-04\",\"2024-05\",\"2024-06\",\"2024-07\",\"2024-08\",\"2024-09\",\"2024-10\",\"2024-11\",\"2024-12\",\"2025-01\",\"2025-02\",\"2025-03\",\"2025-04\",\"2025-05\",\"2025-06\",\"2025-07\",\"2025-08\",\"2025-09\",\"2025-10\",\"2025-11\",\"2025-12\"],\"y\":[-0.036431,0.008596,0.004083,-0.002352,-0.004894,-0.005912,-0.005185,-0.00009,-0.010577,-0.016781,-0.016532,-0.000755,-0.006865,-0.006016,-0.013401,-0.017313,-0.02314,-0.017606,-0.023004,0.000824,-0.000192,0.000705,-0.030169,-0.041071,-0.059097,-0.059178,-0.059335,-0.054283,-0.051883,-0.0505,-0.049826,-0.049235,-0.057134,-0.055043,-0.055322,-0.0381,-0.032514,-0.026146,-0.026459,-0.024306,-0.014961,-0.00266,-0.006833,0.007826,0.010129,0.009596,0.015337,0.013366,0.009793,0.051631,0.031205,0.033187,0.021644,0.049955,0.011709,0.006859,-0.001095,-0.002386,-0.010318,-0.01081,-0.016658],\"type\":\"scatter\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"mode\":\"lines\",\"name\":\"Drift flagged\",\"showlegend\":true,\"x\":[null],\"y\":[null],\"type\":\"scatter\"}],\"layout\":{\"template\":{\"data\":{\"histogram2dcontour\":[{\"type\":\"histogram2dcontour\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"choropleth\":[{\"type\":\"choropleth\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}],\"histogram2d\":[{\"type\":\"histogram2d\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"heatmap\":[{\"type\":\"heatmap\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"contourcarpet\":[{\"type\":\"contourcarpet\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}],\"contour\":[{\"type\":\"contour\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"surface\":[{\"type\":\"surface\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"},\"colorscale\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]]}],\"mesh3d\":[{\"type\":\"mesh3d\",\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}],\"scatter\":[{\"fillpattern\":{\"fillmode\":\"overlay\",\"size\":10,\"solidity\":0.2},\"type\":\"scatter\"}],\"parcoords\":[{\"type\":\"parcoords\",\"line\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scatterpolargl\":[{\"type\":\"scatterpolargl\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"bar\":[{\"error_x\":{\"color\":\"#2a3f5f\"},\"error_y\":{\"color\":\"#2a3f5f\"},\"marker\":{\"line\":{\"color\":\"#E5ECF6\",\"width\":0.5},\"pattern\":{\"fillmode\":\"overlay\",\"size\":10,\"solidity\":0.2}},\"type\":\"bar\"}],\"scattergeo\":[{\"type\":\"scattergeo\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scatterpolar\":[{\"type\":\"scatterpolar\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"histogram\":[{\"marker\":{\"pattern\":{\"fillmode\":\"overlay\",\"size\":10,\"solidity\":0.2}},\"type\":\"histogram\"}],\"scattergl\":[{\"type\":\"scattergl\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scatter3d\":[{\"type\":\"scatter3d\",\"line\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}},\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scattermap\":[{\"type\":\"scattermap\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scattermapbox\":[{\"type\":\"scattermapbox\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scatterternary\":[{\"type\":\"scatterternary\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"scattercarpet\":[{\"type\":\"scattercarpet\",\"marker\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}}}],\"carpet\":[{\"aaxis\":{\"endlinecolor\":\"#2a3f5f\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"minorgridcolor\":\"white\",\"startlinecolor\":\"#2a3f5f\"},\"baxis\":{\"endlinecolor\":\"#2a3f5f\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"minorgridcolor\":\"white\",\"startlinecolor\":\"#2a3f5f\"},\"type\":\"carpet\"}],\"table\":[{\"cells\":{\"fill\":{\"color\":\"#EBF0F8\"},\"line\":{\"color\":\"white\"}},\"header\":{\"fill\":{\"color\":\"#C8D4E3\"},\"line\":{\"color\":\"white\"}},\"type\":\"table\"}],\"barpolar\":[{\"marker\":{\"line\":{\"color\":\"#E5ECF6\",\"width\":0.5},\"pattern\":{\"fillmode\":\"overlay\",\"size\":10,\"solidity\":0.2}},\"type\":\"barpolar\"}],\"pie\":[{\"automargin\":true,\"type\":\"pie\"}]},\"layout\":{\"autotypenumbers\":\"strict\",\"colorway\":[\"#636efa\",\"#EF553B\",\"#00cc96\",\"#ab63fa\",\"#FFA15A\",\"#19d3f3\",\"#FF6692\",\"#B6E880\",\"#FF97FF\",\"#FECB52\"],\"font\":{\"color\":\"#2a3f5f\"},\"hovermode\":\"closest\",\"hoverlabel\":{\"align\":\"left\"},\"paper_bgcolor\":\"white\",\"plot_bgcolor\":\"#E5ECF6\",\"polar\":{\"bgcolor\":\"#E5ECF6\",\"angularaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"},\"radialaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"}},\"ternary\":{\"bgcolor\":\"#E5ECF6\",\"aaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"},\"baxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"},\"caxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\"}},\"coloraxis\":{\"colorbar\":{\"outlinewidth\":0,\"ticks\":\"\"}},\"colorscale\":{\"sequential\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]],\"sequentialminus\":[[0.0,\"#0d0887\"],[0.1111111111111111,\"#46039f\"],[0.2222222222222222,\"#7201a8\"],[0.3333333333333333,\"#9c179e\"],[0.4444444444444444,\"#bd3786\"],[0.5555555555555556,\"#d8576b\"],[0.6666666666666666,\"#ed7953\"],[0.7777777777777778,\"#fb9f3a\"],[0.8888888888888888,\"#fdca26\"],[1.0,\"#f0f921\"]],\"diverging\":[[0,\"#8e0152\"],[0.1,\"#c51b7d\"],[0.2,\"#de77ae\"],[0.3,\"#f1b6da\"],[0.4,\"#fde0ef\"],[0.5,\"#f7f7f7\"],[0.6,\"#e6f5d0\"],[0.7,\"#b8e186\"],[0.8,\"#7fbc41\"],[0.9,\"#4d9221\"],[1,\"#276419\"]]},\"xaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\",\"title\":{\"standoff\":15},\"zerolinecolor\":\"white\",\"automargin\":true,\"zerolinewidth\":2},\"yaxis\":{\"gridcolor\":\"white\",\"linecolor\":\"white\",\"ticks\":\"\",\"title\":{\"standoff\":15},\"zerolinecolor\":\"white\",\"automargin\":true,\"zerolinewidth\":2},\"scene\":{\"xaxis\":{\"backgroundcolor\":\"#E5ECF6\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"showbackground\":true,\"ticks\":\"\",\"zerolinecolor\":\"white\",\"gridwidth\":2},\"yaxis\":{\"backgroundcolor\":\"#E5ECF6\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"showbackground\":true,\"ticks\":\"\",\"zerolinecolor\":\"white\",\"gridwidth\":2},\"zaxis\":{\"backgroundcolor\":\"#E5ECF6\",\"gridcolor\":\"white\",\"linecolor\":\"white\",\"showbackground\":true,\"ticks\":\"\",\"zerolinecolor\":\"white\",\"gridwidth\":2}},\"shapedefaults\":{\"line\":{\"color\":\"#2a3f5f\"}},\"annotationdefaults\":{\"arrowcolor\":\"#2a3f5f\",\"arrowhead\":0,\"arrowwidth\":1},\"geo\":{\"bgcolor\":\"white\",\"landcolor\":\"#E5ECF6\",\"subunitcolor\":\"white\",\"showland\":true,\"showlakes\":true,\"lakecolor\":\"white\"},\"title\":{\"x\":0.05},\"mapbox\":{\"style\":\"light\"}}},\"shapes\":[{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2024-04\",\"x1\":\"2024-04\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2025-07\",\"x1\":\"2025-07\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2023-02\",\"x1\":\"2023-02\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2024-09\",\"x1\":\"2024-09\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2024-06\",\"x1\":\"2024-06\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2024-03\",\"x1\":\"2024-03\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2023-03\",\"x1\":\"2023-03\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2023-12\",\"x1\":\"2023-12\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2024-08\",\"x1\":\"2024-08\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2022-10\",\"x1\":\"2022-10\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2023-10\",\"x1\":\"2023-10\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2022-11\",\"x1\":\"2022-11\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2024-12\",\"x1\":\"2024-12\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2024-07\",\"x1\":\"2024-07\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2024-02\",\"x1\":\"2024-02\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2024-11\",\"x1\":\"2024-11\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2022-09\",\"x1\":\"2022-09\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2025-06\",\"x1\":\"2025-06\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2023-09\",\"x1\":\"2023-09\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2025-12\",\"x1\":\"2025-12\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2024-01\",\"x1\":\"2024-01\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2025-03\",\"x1\":\"2025-03\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2023-04\",\"x1\":\"2023-04\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2025-11\",\"x1\":\"2025-11\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2022-01\",\"x1\":\"2022-01\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2025-09\",\"x1\":\"2025-09\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2023-07\",\"x1\":\"2023-07\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2025-10\",\"x1\":\"2025-10\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2025-05\",\"x1\":\"2025-05\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2023-05\",\"x1\":\"2023-05\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2023-01\",\"x1\":\"2023-01\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2022-08\",\"x1\":\"2022-08\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2022-04\",\"x1\":\"2022-04\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2022-12\",\"x1\":\"2022-12\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2022-03\",\"x1\":\"2022-03\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2025-01\",\"x1\":\"2025-01\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2025-02\",\"x1\":\"2025-02\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2022-05\",\"x1\":\"2022-05\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2022-02\",\"x1\":\"2022-02\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2023-11\",\"x1\":\"2023-11\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2025-08\",\"x1\":\"2025-08\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2024-05\",\"x1\":\"2024-05\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2025-04\",\"x1\":\"2025-04\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2023-06\",\"x1\":\"2023-06\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2024-10\",\"x1\":\"2024-10\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2023-08\",\"x1\":\"2023-08\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#FF4444\",\"dash\":\"dot\",\"width\":1},\"opacity\":0.6,\"type\":\"line\",\"x0\":\"2022-07\",\"x1\":\"2022-07\",\"xref\":\"x\",\"y0\":0,\"y1\":1,\"yref\":\"y domain\"},{\"line\":{\"color\":\"#A0A0B0\",\"width\":0.5},\"type\":\"line\",\"x0\":0,\"x1\":1,\"xref\":\"x domain\",\"y0\":0,\"y1\":0,\"yref\":\"y\"}],\"title\":{\"font\":{\"color\":\"#FAFAFA\",\"size\":14},\"text\":\"FXAIX - Rolling Factor Exposures (24-Month Window)\",\"x\":0.0,\"xanchor\":\"left\"},\"font\":{\"color\":\"#FAFAFA\",\"size\":11},\"margin\":{\"l\":60,\"r\":30,\"t\":60,\"b\":50},\"legend\":{\"font\":{\"color\":\"#FAFAFA\",\"size\":10},\"bgcolor\":\"#1A1D27\",\"bordercolor\":\"#2A2D3A\",\"borderwidth\":1,\"orientation\":\"h\",\"yanchor\":\"bottom\",\"y\":1.02,\"xanchor\":\"left\",\"x\":0},\"xaxis\":{\"tickfont\":{\"color\":\"#A0A0B0\"},\"gridcolor\":\"#2A2D3A\",\"linecolor\":\"#2A2D3A\",\"title\":{}},\"yaxis\":{\"tickfont\":{\"color\":\"#A0A0B0\"},\"gridcolor\":\"#2A2D3A\",\"linecolor\":\"#2A2D3A\",\"title\":{\"text\":\"Factor Loading\"}},\"paper_bgcolor\":\"#0E1117\",\"plot_bgcolor\":\"#1A1D27\",\"height\":450}}"
+  },
+  "narrative": "## Fidelity 500 Index Fund (FXAIX) \u2014 Style Analysis Narrative\n\n---\n\n### 1. Fund Snapshot\n\nThe Fidelity 500 Index Fund (FXAIX) is a passively managed Large Blend fund that tracks the S&P 500, with $550 billion in AUM and an expense ratio of 0.02 basis points, making it one of the largest and lowest-cost index funds available. The fund has been in operation since February 1988, providing a long institutional track record. The analysis window covers January 2019 through December 2025, a 7-year period that spans a full market cycle including the COVID crash, the 2022 bear market, and the subsequent AI-driven bull market.\n\n---\n\n### 2. Factor Profile\n\nThree factors carry statistically significant loadings over the full period. The market beta of 0.98 (t-stat: 88.2) confirms the fund moves in near-lockstep with the broad equity market, as expected of an S&P 500 index product. The SMB loading of -0.12 (t-stat: -5.4) reflects a consistent large-cap tilt: the fund systematically underperforms small-cap benchmarks in environments where small stocks outperform. The RMW loading of 0.056 (t-stat: 2.4) indicates a modest tilt toward profitable firms, which is a natural consequence of the S&P 500's composition skewing toward large, established businesses. HML, CMA, and momentum loadings are all statistically insignificant at the 95% confidence level, meaning the fund carries no reliable value, investment, or momentum tilt in aggregate over this period. The adjusted R-squared of 0.9917 means the six-factor model explains over 99% of return variance, giving very high confidence in these factor estimates.\n\n---\n\n### 3. Style Drift Analysis\n\nThe rolling window analysis detected 97 drift events across 61 windows, though most are concentrated in two factors: CMA (conservative-minus-aggressive investment) and, to a lesser extent, market beta and momentum. The most persistent and economically meaningful drift is a sustained shift toward a negative CMA loading beginning in mid-2024 and running through early 2025. In December 2024, the CMA loading reached -0.08 against a historical mean of +0.034, a z-score of -4.5, indicating the rolling portfolio had moved decisively toward firms with aggressive investment profiles. This is consistent with the S&P 500's increasing concentration in high-capital-expenditure AI and technology companies (NVIDIA, for example, now represents 6.5% of the portfolio) displacing more capital-conservative firms at the margin. A secondary event in late 2022 shows the momentum loading falling to -0.059 against a historical mean of -0.011 (z-score: -3.8), consistent with a period where the market's prior winners (growth and tech) were giving back returns and the index briefly exhibited anti-momentum characteristics. Market beta ticked modestly higher in spring 2022 (to 0.982 against a prior mean of 0.951), a technically significant but economically minor shift given the narrow range involved.\n\n---\n\n### 4. Confidence Assessment\n\nModel fit is high (adjusted R-squared: 0.9917), residual normality passes (Jarque-Bera p-value: 0.79), and the 84-observation sample is adequate for OLS inference. The one meaningful limitation is that only three of six factors are statistically significant, earning a \"moderate\" significance rating: the insignificance of HML, CMA, and momentum at the full-period level does not mean those exposures are absent at all times, as the drift analysis demonstrates, but rather that they average near zero across the full window. Findings for the significant factors (market beta, SMB, and RMW) are reliable; the drift signals in CMA and momentum should be interpreted as directional indicators of recent compositional changes rather than stable long-run style characteristics."
+}
