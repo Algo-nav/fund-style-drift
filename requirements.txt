@@ -1,5 +1,4 @@
 annotated-doc==0.0.4
-annotated-types==0.7.0
 anthropic==0.100.0
 anyio==4.13.0
 appnope==0.1.4
@@ -99,7 +98,6 @@ ptyprocess==0.7.0
 pure_eval==0.2.3
 pycparser==3.0
 pydantic==2.12.5
-pydantic_core==2.46.4
 pydub==0.25.1
 Pygments==2.20.0
 python-dateutil==2.9.0.post0
