@@ -480,17 +480,84 @@ python -m scripts.pregenerate --refresh              # overwrite existing
 
 ---
 
+## Week 10 — Gradio UI, Visual Polish, and Deployment
+
+**Goal:** Build the Gradio UI, deploy to HF Spaces. Hard checkpoint: Space live and functional.
+
+### Gradio UI
+
+**File:** `app.py`
+
+**Layout:**
+- Hero header spanning full width: title, description, tech stack line.
+- Sidebar: fund selector dropdown, fund info (name, category, AUM, expense ratio, inception), confidence assessment badges.
+- Main panel: Gallery/Live Regen tabs, three Plotly charts, Claude narrative, holdings table, methodology note.
+
+**Design decisions:**
+- Playfair Display for headings (editorial, finance-appropriate), IBM Plex Sans for body, IBM Plex Mono for labels and badges.
+- Dark/light mode aware via CSS variables.
+- Confidence badges with explicit color values (green=high/pass/adequate, amber=moderate/marginal, red=low/flag/insufficient).
+- Fonts served via cdnfonts.com (Google Fonts blocked on HF Spaces).
+- `gr.Plot` for charts (not `gr.HTML`) - HTML approach failed due to Plotly JS size (~4.8MB per chart inline).
+
+**NAV chart fix:** Chart generator was receiving monthly returns instead of prices. Fixed by computing a cumulative return index (base 100) in `agent.py` before passing to chart generator. More comparable across funds than raw prices.
+
+### HF Space Deployment
+
+**Space:** huggingface.co/spaces/Nav772/fund-style-drift
+**Hardware:** CPU Basic (free tier)
+**Secrets configured:** ANTHROPIC_API_KEY, FMP_API_KEY, TAVILY_API_KEY, FRED_API_KEY, EDGAR_USER_AGENT
+
+**Deployment issues resolved:**
+
+| Issue | Resolution |
+|---|---|
+| `short_description` too long in Space card YAML | Shortened to under 60 characters |
+| pydantic==2.13.4 conflicts with gradio MCP extra | Pinned pydantic==2.12.5, removed pydantic_core pin |
+| Google Fonts blocked on HF Spaces | Switched to cdnfonts.com CDN |
+| Badge colors not rendering | Replaced CSS variable references with explicit rgba values + !important |
+
+### Commits (Week 10 + Deployment)
+
+| Hash | Message |
+|---|---|
+| a9d1eb5 | Week 10: polished UI with hero header, custom fonts, confidence badges, dark/light mode |
+| 0d22d0c | Fix NAV chart: cumulative return index instead of raw returns |
+| 1348347 | Add README with Space card, methodology, architecture, and research references |
+| 4d95071 | Add pre-generated reports for HF Space gallery |
+| ceed8ea | Pin pydantic to 2.12.5 for Gradio HF Space compatibility |
+| 2812683 | Fix HF Spaces font and badge rendering |
+
+---
+
+## Final Status
+
+**Demo #2 shipped.** huggingface.co/spaces/Nav772/fund-style-drift
+
+| Metric | Result |
+|---|---|
+| Funds covered | 33 (20 ETFs, 13 mutual funds) |
+| Pipeline failures | 0/33 |
+| Holdings failures | 4/33 (Vanguard trust CIK limitation, non-blocking) |
+| Report size | ~77KB per fund |
+| Narrative range | 3,300-4,200 chars |
+| Date range | 2019-01 to 2025-12 (84 months) |
+| Rolling windows per fund | 61 |
+
+---
+
 ## Open Issues and Decisions Pending
 
 | Item | Status |
 |---|---|
-| Ken French data refresh frequency | Currently manual (`refresh=True`). Automated refresh cadence deferred to post-launch. |
-| Visual polish (spacing, margins, fonts) | Deferred to week 10 polish phase. |
-| FMP metadata upgrade | FMP Starter tier 403s on ETF info endpoint. Hardcoded table used for v1. Upgrade to higher tier in v1.1 if needed. |
-| VOO, VTV, VUG, VYM holdings | Vanguard trust CIK doesn't resolve to active NPORT-P. Logged as known limitation. |
-| VWUSX holdings count | Shows 6,613 holdings due to shared Vanguard trust CIK. Logged as known limitation. |
-| Gradio UI | Pending week 10. |
-| HF Space deployment | Pending week 14. |
+| Ken French data refresh frequency | Manual (`refresh=True`). Automated refresh deferred to v1.1. |
+| FMP metadata upgrade | Hardcoded table used for v1. FMP Starter tier 403s on ETF info endpoint. |
+| VOO, VTV, VUG, VYM holdings | Vanguard trust CIK doesn't resolve to active NPORT-P. Known limitation. |
+| VWUSX holdings count | Shows 6,613 holdings due to shared Vanguard trust CIK. Known limitation. |
+| Post-launch content | TDS/Substack post, LinkedIn arc - pending. |
+| Custom 7-factor model | Deferred to v1.1. |
+| Comparison mode (2-5 funds) | Deferred to v1.1. |
+| Statistical change-point detection | CUSUM/Bayesian deferred to v1.1. |
 
 ---
 
@@ -504,7 +571,9 @@ python -m scripts.pregenerate --refresh              # overwrite existing
 - **Confidence scoring:** Multi-dimensional vector (r-squared, t-stat strength, sample adequacy, factor stability). Each dimension reported separately. No single collapsed score.
 - **Data source for factors:** Ken French data library (free, monthly updates). Not computed internally.
 - **Caching strategy:** Local CSV cache in `data/french_factors/`. Avoids repeated downloads. `refresh=True` flag for manual cache busting.
-- **Fund metadata:** Hardcoded lookup table for 34-fund universe. FMP profile fallback for unknown tickers. Last resort returns ticker with nulls.
-- **Chart output format:** Plotly figures serialized to JSON strings. Deserialized in Gradio UI for rendering.
+- **Fund metadata:** Hardcoded lookup table for 33-fund universe. FMP profile fallback for unknown tickers. Last resort returns ticker with nulls.
+- **Chart output format:** Plotly figures via `gr.Plot` component. JSON serialized in report files, deserialized at render time.
+- **NAV chart:** Cumulative return index (base 100) for cross-fund comparability.
 - **N-PORT ETF lookup:** Hardcoded CIK override table for all 20 ETFs. Mutual funds use dynamic atom feed lookup.
-- **GitHub:** Public repo under Algo-nav account. MIT license.
+- **GitHub:** Public repo under Algo-nav account. MIT license. github.com/Algo-nav/fund-style-drift
+- **HF Space:** Public, CPU Basic free tier. huggingface.co/spaces/Nav772/fund-style-drift
