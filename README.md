@@ -8,7 +8,7 @@ sdk_version: 6.14.0
 app_file: app.py
 pinned: false
 license: mit
-short_description: Rolling FF6 factor regression detects style drift in 33 US equity funds
+short_description: FF6 factor regression detects style drift in US funds
 ---
 
 # Fund Style Drift Detector
