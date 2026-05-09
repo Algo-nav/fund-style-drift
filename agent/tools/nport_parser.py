@@ -18,6 +18,30 @@ NS = {
     "com":   "http://www.sec.gov/edgar/common"
 }
 
+# Some ETFs are filed under trust entities, not by ticker name.
+# The standard CIK lookup fails for these. Hardcoded overrides.
+CIK_OVERRIDES = {
+    "ARKK": "0001579982",   # ARK ETF Trust
+    "ARKG": "0001579982",   # ARK ETF Trust
+    "SPY":  "0000884394",   # SPDR S&P 500 ETF Trust
+    "QQQ":  "0001067839",   # Invesco QQQ Trust
+    "IWM":  "0001100663",   # iShares Trust
+    "VOO":  "0001397545",   # Vanguard Index Funds
+    "VTV":  "0001289988",   # Vanguard World Fund
+    "VUG":  "0001289988",   # Vanguard World Fund
+    "MTUM": "0001100663",   # iShares Trust
+    "QUAL": "0001100663",   # iShares Trust
+    "USMV": "0001100663",   # iShares Trust
+    "SPLV": "0001378872",   # Invesco Exchange-Traded Fund Trust
+    "VYM":  "0001272145",   # Vanguard Whitehall Funds
+    "DGRO": "0001100663",   # iShares Trust
+    "SPYG": "0000884394",   # SPDR Series Trust
+    "SPYV": "0000884394",   # SPDR Series Trust
+    "XLK":  "0001064641",   # Select Sector SPDR Trust
+    "XLF":  "0001064641",   # Select Sector SPDR Trust
+    "XLE":  "0001064641",   # Select Sector SPDR Trust
+    "XLV":  "0001064641",   # Select Sector SPDR Trust
+}
 
 class Holding(BaseModel):
     name: str
@@ -44,7 +68,12 @@ class NportOutput(BaseModel):
 
 
 def _get_cik(ticker: str) -> Optional[str]:
-    """Look up EDGAR CIK for a given ticker using the company search API."""
+    """Look up EDGAR CIK for a given ticker."""
+    # Check hardcoded overrides first
+    if ticker.upper() in CIK_OVERRIDES:
+        return CIK_OVERRIDES[ticker.upper()]
+
+    # Fallback: EDGAR company search atom feed
     url = f"https://www.sec.gov/cgi-bin/browse-edgar?company=&CIK={ticker}&type=NPORT-P&dateb=&owner=include&count=5&search_text=&action=getcompany&output=atom"
     r = requests.get(url, headers=HEADERS, timeout=30)
     r.raise_for_status()
