@@ -44,7 +44,6 @@ FUND_UNIVERSE = {
     "AIVSX": {"name": "American Funds Investment Co",      "category": "Large Blend",        "aum_usd": 150_000_000_000, "expense_ratio": 0.0057, "inception_date": "1934-01-01", "exchange": "MUTF"},
     "PRGFX": {"name": "T. Rowe Price Growth Stock Fund",   "category": "Large Growth",       "aum_usd": 55_000_000_000,  "expense_ratio": 0.0064, "inception_date": "1950-04-11", "exchange": "MUTF"},
     "PRFDX": {"name": "T. Rowe Price Dividend Growth",     "category": "Large Blend",        "aum_usd": 18_000_000_000,  "expense_ratio": 0.0062, "inception_date": "1992-12-30", "exchange": "MUTF"},
-    "JAVLX": {"name": "Janus Henderson Forty Fund",        "category": "Large Growth",       "aum_usd": 8_000_000_000,   "expense_ratio": 0.0064, "inception_date": "1997-05-01", "exchange": "MUTF"},
     "MFEKX": {"name": "MFS Massachusetts Investors Trust", "category": "Large Blend",        "aum_usd": 6_000_000_000,   "expense_ratio": 0.0071, "inception_date": "1924-03-21", "exchange": "MUTF"},
     "LMOPX": {"name": "Legg Mason Opportunity Trust",      "category": "Mid Blend",          "aum_usd": 2_000_000_000,   "expense_ratio": 0.0108, "inception_date": "1933-01-01", "exchange": "MUTF"},
     "CGMFX": {"name": "CGM Focus Fund",                    "category": "Large Blend",        "aum_usd": 1_000_000_000,   "expense_ratio": 0.0091, "inception_date": "1997-09-02", "exchange": "MUTF"},
