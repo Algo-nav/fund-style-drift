@@ -18,7 +18,9 @@ FUND_UNIVERSE = sorted([
 ])
 
 CUSTOM_CSS = """
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.cdnfonts.com/css/playfair-display');
+@import url('https://fonts.cdnfonts.com/css/ibm-plex-sans');
+@import url('https://fonts.cdnfonts.com/css/ibm-plex-mono');
 
 :root {
     --font-display: 'Playfair Display', Georgia, serif;
@@ -175,14 +177,14 @@ body, .gradio-container {
     font-family: var(--font-mono) !important;
 }
 
-.badge-high    { background: rgba(74,222,128,0.12); color: #4ADE80; }
-.badge-moderate { background: rgba(251,191,36,0.12); color: #FBBF24; }
-.badge-low     { background: rgba(248,113,113,0.12); color: #F87171; }
-.badge-adequate { background: rgba(74,222,128,0.12); color: #4ADE80; }
-.badge-marginal { background: rgba(251,191,36,0.12); color: #FBBF24; }
-.badge-insufficient { background: rgba(248,113,113,0.12); color: #F87171; }
-.badge-pass    { background: rgba(74,222,128,0.12); color: #4ADE80; }
-.badge-flag    { background: rgba(248,113,113,0.12); color: #F87171; }
+.badge-high    { background: rgba(74,222,128,0.15) !important; color: #4ADE80 !important; border: 1px solid rgba(74,222,128,0.3) !important; }
+.badge-moderate { background: rgba(251,191,36,0.15) !important; color: #FBBF24 !important; border: 1px solid rgba(251,191,36,0.3) !important; }
+.badge-low     { background: rgba(248,113,113,0.15) !important; color: #F87171 !important; border: 1px solid rgba(248,113,113,0.3) !important; }
+.badge-adequate { background: rgba(74,222,128,0.15) !important; color: #4ADE80 !important; border: 1px solid rgba(74,222,128,0.3) !important; }
+.badge-marginal { background: rgba(251,191,36,0.15) !important; color: #FBBF24 !important; border: 1px solid rgba(251,191,36,0.3) !important; }
+.badge-insufficient { background: rgba(248,113,113,0.15) !important; color: #F87171 !important; border: 1px solid rgba(248,113,113,0.3) !important; }
+.badge-pass    { background: rgba(74,222,128,0.15) !important; color: #4ADE80 !important; border: 1px solid rgba(74,222,128,0.3) !important; }
+.badge-flag    { background: rgba(248,113,113,0.15) !important; color: #F87171 !important; border: 1px solid rgba(248,113,113,0.3) !important; }
 
 /* ── Main panel ── */
 .main-panel {
